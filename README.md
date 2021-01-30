@@ -1,4 +1,4 @@
-# agri_ed_mobile
+# AgriEd Mobile
 
 A new Flutter project.
 
