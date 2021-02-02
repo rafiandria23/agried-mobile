@@ -1,8 +1,18 @@
+import 'package:agri_ed_mobile/screens/landing.dart';
 import 'package:flutter/material.dart';
 import 'screens/signin.dart';
 
-class App extends StatelessWidget {
+class App extends StatefulWidget {
   // This widget is the root of your application.
+  @override
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -23,7 +33,19 @@ class App extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.comfortable,
       ),
-      home: SignInScreen(),
+      home: Navigator(
+        initialRoute: '/SignInScreen',
+        pages: <MaterialPage>[
+          MaterialPage(
+            key: ValueKey('SignInScreen'),
+            child: SignInScreen(),
+          ),
+          MaterialPage(
+            key: ValueKey('LandingScreen'),
+            child: LandingScreen(),
+          ),
+        ],
+      ),
     );
   }
 }

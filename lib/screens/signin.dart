@@ -88,16 +88,19 @@ class _SignInScreenState extends State<SignInScreen> {
           _password = passwordController.text;
         });
 
-        if (_formKey.currentState.validate()) {
-          if (_email != 'philip@agried.com') {
-            print('Wrong email or password!');
-          } else if (_password != 'agried123') {
-            print('Wrong email or password!');
-          } else {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => LandingScreen()));
-          }
-        }
+        // if (_formKey.currentState.validate()) {
+        //   if (_email != 'siti@agried.com') {
+        //     print('Wrong email or password!');
+        //   } else if (_password != 'agried123') {
+        //     print('Wrong email or password!');
+        //   } else {
+        //     Navigator.push(context,
+        //         MaterialPageRoute(builder: (context) => LandingScreen()));
+        //   }
+        // }
+
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => LandingScreen()));
       },
       child: Text('Sign In'),
     );
