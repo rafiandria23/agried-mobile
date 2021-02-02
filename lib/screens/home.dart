@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:agri_ed_mobile/components/home_card.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -8,56 +9,39 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIdx = 0;
-
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
+  static List<HomeCard> _homeCards = <HomeCard>[
+    HomeCard(
+      title: Text('Modules'),
+      backgroundImage: AssetImage('assets/images/modules_card_bg.png'),
+      onPressed: () {},
     ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
+    HomeCard(
+      title: Text('Resources'),
+      backgroundImage: AssetImage('assets/images/resources_card_bg.png'),
+      onPressed: () {},
     ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
+    HomeCard(
+      title: Text('Reporting'),
+      backgroundImage: AssetImage('assets/images/reporting_card_bg.png'),
+      onPressed: () {},
     ),
+    HomeCard(
+      title: Text('Private Sector'),
+      backgroundImage: AssetImage('assets/images/private_sector_card_bg.png'),
+      onPressed: () {},
+    )
   ];
-
-  void _onItemTapped(int idx) {
-    setState(() {
-      _selectedIdx = idx;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIdx),
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            label: '',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            label: '',
-          ),
-        ],
-        currentIndex: _selectedIdx,
-        selectedItemColor: Colors.blue,
-        onTap: _onItemTapped,
+      body: Padding(
+        padding: const EdgeInsets.all(32.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: _homeCards,
+        ),
       ),
     );
   }

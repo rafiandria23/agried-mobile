@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:agri_ed_mobile/screens/home.dart';
+import 'package:agri_ed_mobile/screens/landing.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({Key key}) : super(key: key);
@@ -94,8 +94,8 @@ class _SignInScreenState extends State<SignInScreen> {
           } else if (_password != 'agried123') {
             print('Wrong email or password!');
           } else {
-            Navigator.push(
-                context, MaterialPageRoute(builder: (context) => HomeScreen()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => LandingScreen()));
           }
         }
       },
