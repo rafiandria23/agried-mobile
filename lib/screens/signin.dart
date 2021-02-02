@@ -103,7 +103,16 @@ class _SignInScreenState extends State<SignInScreen> {
     );
 
     return Scaffold(
-      body: Form(
+        body: GestureDetector(
+      behavior: HitTestBehavior.translucent,
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: Form(
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.all(32.0),
@@ -122,6 +131,6 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
         ),
       ),
-    );
+    ));
   }
 }
