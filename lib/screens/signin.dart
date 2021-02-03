@@ -4,6 +4,8 @@ import 'package:agri_ed_mobile/screens/landing.dart';
 class SignInScreen extends StatefulWidget {
   SignInScreen({Key key}) : super(key: key);
 
+  static const String route = '/signin';
+
   @override
   _SignInScreenState createState() => _SignInScreenState();
 }
@@ -99,8 +101,10 @@ class _SignInScreenState extends State<SignInScreen> {
         //   }
         // }
 
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => LandingScreen()));
+        Navigator.pushNamed(
+          context,
+          LandingScreen.route,
+        );
       },
       child: Text('Sign In'),
     );

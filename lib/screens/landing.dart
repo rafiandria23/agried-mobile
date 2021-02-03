@@ -4,6 +4,8 @@ import 'package:agri_ed_mobile/screens/home.dart';
 class LandingScreen extends StatefulWidget {
   LandingScreen({Key key}) : super(key: key);
 
+  static const String route = '/landing';
+
   @override
   _LandingScreenState createState() => _LandingScreenState();
 }

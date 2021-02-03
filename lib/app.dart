@@ -1,6 +1,10 @@
-import 'package:agri_ed_mobile/screens/landing.dart';
 import 'package:flutter/material.dart';
-import 'screens/signin.dart';
+import 'package:agri_ed_mobile/screens/signin.dart';
+import 'package:agri_ed_mobile/screens/landing.dart';
+import 'package:agri_ed_mobile/screens/home_screens/modules.dart';
+import 'package:agri_ed_mobile/screens/home_screens/resources.dart';
+import 'package:agri_ed_mobile/screens/home_screens/reporting.dart';
+import 'package:agri_ed_mobile/screens/home_screens/private_sector.dart';
 
 class App extends StatefulWidget {
   // This widget is the root of your application.
@@ -33,19 +37,32 @@ class _AppState extends State<App> {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.comfortable,
       ),
-      home: Navigator(
-        initialRoute: '/SignInScreen',
-        pages: <MaterialPage>[
-          MaterialPage(
-            key: ValueKey('SignInScreen'),
-            child: SignInScreen(),
-          ),
-          MaterialPage(
-            key: ValueKey('LandingScreen'),
-            child: LandingScreen(),
-          ),
-        ],
-      ),
+      initialRoute: SignInScreen.route,
+      home: LandingScreen(),
+      onGenerateRoute: (settings) {
+        switch (settings.name) {
+          case SignInScreen.route:
+            return MaterialPageRoute(builder: (_) => SignInScreen());
+
+          case LandingScreen.route:
+            return MaterialPageRoute(builder: (_) => LandingScreen());
+
+          case ModulesScreen.route:
+            return MaterialPageRoute(builder: (_) => ModulesScreen());
+
+          case ResourcesScreen.route:
+            return MaterialPageRoute(builder: (_) => ResourcesScreen());
+
+          case ReportingScreen.route:
+            return MaterialPageRoute(builder: (_) => ReportingScreen());
+
+          case PrivateSectorScreen.route:
+            return MaterialPageRoute(builder: (_) => PrivateSectorScreen());
+
+          default:
+            return MaterialPageRoute(builder: (_) => SignInScreen());
+        }
+      },
     );
   }
 }
