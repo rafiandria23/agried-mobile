@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:agri_ed_mobile/screens/landing.dart';
+import 'package:agri_ed_mobile/screens.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({Key key}) : super(key: key);

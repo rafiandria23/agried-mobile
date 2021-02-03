@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:agri_ed_mobile/components/home_card.dart';
-import 'package:agri_ed_mobile/screens/home_screens/modules.dart';
-import 'package:agri_ed_mobile/screens/home_screens/resources.dart';
-import 'package:agri_ed_mobile/screens/home_screens/reporting.dart';
-import 'package:agri_ed_mobile/screens/home_screens/private_sector.dart';
+import 'package:agri_ed_mobile/components.dart';
+import 'package:agri_ed_mobile/screens.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -26,7 +23,10 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 24.0,
           ),
         ),
-        backgroundImage: AssetImage('assets/images/modules_card_bg.png'),
+        backgroundImage: Image(
+          image: AssetImage('assets/images/modules_card_bg.png'),
+          fit: BoxFit.fill,
+        ),
         onTap: () {
           Navigator.pushNamed(
             context,
@@ -44,7 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 24.0,
           ),
         ),
-        backgroundImage: AssetImage('assets/images/resources_card_bg.png'),
+        backgroundImage: Image(
+          image: AssetImage('assets/images/resources_card_bg.png'),
+          fit: BoxFit.fill,
+        ),
         onTap: () {
           Navigator.pushNamed(
             context,
@@ -62,7 +65,10 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 24.0,
           ),
         ),
-        backgroundImage: AssetImage('assets/images/reporting_card_bg.png'),
+        backgroundImage: Image(
+          image: AssetImage('assets/images/reporting_card_bg.png'),
+          fit: BoxFit.fill,
+        ),
         onTap: () {
           Navigator.pushNamed(
             context,
@@ -80,7 +86,10 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 24.0,
           ),
         ),
-        backgroundImage: AssetImage('assets/images/private_sector_card_bg.png'),
+        backgroundImage: Image(
+          image: AssetImage('assets/images/private_sector_card_bg.png'),
+          fit: BoxFit.fill,
+        ),
         onTap: () {
           Navigator.pushNamed(
             context,

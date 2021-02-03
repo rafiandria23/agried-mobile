@@ -8,7 +8,7 @@ class HomeCard extends StatelessWidget {
       @required this.onTap})
       : super(key: key);
 
-  final AssetImage backgroundImage;
+  final Image backgroundImage;
   final Widget title;
   final VoidCallback onTap;
 
@@ -38,10 +38,7 @@ class HomeCard extends StatelessWidget {
               children: <Widget>[
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  child: Image(
-                    image: backgroundImage,
-                    fit: BoxFit.fill,
-                  ),
+                  child: backgroundImage,
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(10.0, 12.0, 10.0, 0.0),
