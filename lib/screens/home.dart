@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:agri_ed_mobile/models.dart';
 import 'package:agri_ed_mobile/components.dart';
 import 'package:agri_ed_mobile/screens.dart';
 
@@ -10,9 +11,23 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  final Student _currentStudent = Student(
+    id: 1,
+    name: 'Siti Widjaya',
+    className: '12B',
+    major: 'ATPH',
+    school: School(name: 'SMKN 2 Subang'),
+    serialNo: 'S123876-e',
+  );
+
   @override
   Widget build(BuildContext context) {
-    List<HomeCard> _homeCards = <HomeCard>[
+    List<Widget> _homeCards = <Widget>[
+      StudentProfileCard(
+        profileImage: AssetImage('assets/dummies/student_profile_image.png'),
+        student: _currentStudent,
+        onTap: () {},
+      ),
       HomeCard(
         title: Text(
           'Modules'.toUpperCase(),

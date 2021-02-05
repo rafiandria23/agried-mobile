@@ -30,6 +30,7 @@ class HomeCard extends StatelessWidget {
 
     return Center(
       child: Card(
+        elevation: 0,
         child: InkWell(
           splashColor: Colors.blue.withAlpha(30),
           onTap: onTap,

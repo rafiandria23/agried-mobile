@@ -26,11 +26,44 @@ class StudentProfileCard extends StatelessWidget {
     );
 
     Column studentDetails = Column(
-      children: <Widget>[],
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        Text(
+          student.name,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          'Kelas ${student.className}',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          student.major,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          student.school.name,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        Text(
+          'No: ${student.serialNo}',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+      ],
     );
 
     return Center(
       child: Card(
+        elevation: 0,
         child: InkWell(
           splashColor: Colors.blue.withAlpha(30),
           onTap: onTap,
@@ -40,8 +73,17 @@ class StudentProfileCard extends StatelessWidget {
                 Container(
                   width: MediaQuery.of(context).size.width,
                 ),
-                Row(
-                  children: <Widget>[studentAvatar, studentDetails],
+                Padding(
+                  padding: EdgeInsets.all(8.0),
+                  child: Row(
+                    children: <Widget>[
+                      studentAvatar,
+                      SizedBox(
+                        width: 18.0,
+                      ),
+                      studentDetails
+                    ],
+                  ),
                 ),
               ],
             ),

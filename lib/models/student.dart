@@ -1,7 +1,7 @@
 import 'package:agri_ed_mobile/models.dart';
 
 class Student {
-  final String id;
+  final int id;
   final String name;
   final String className;
   final School school;
