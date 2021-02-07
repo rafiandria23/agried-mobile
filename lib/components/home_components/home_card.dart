@@ -14,30 +14,25 @@ class HomeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return GestureDetector(
+      onTap: onTap,
       child: Card(
         elevation: 0,
-        child: InkWell(
-          splashColor: Colors.blue.withAlpha(30),
-          onTap: onTap,
-          child: Center(
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  child: Image(
-                    image: backgroundImage,
-                    fit: BoxFit.fill,
-                  ),
-                ),
-                Container(
-                  padding: EdgeInsets.fromLTRB(10.0, 12.0, 10.0, 0.0),
-                  width: MediaQuery.of(context).size.width,
-                  child: title,
-                ),
-              ],
+        child: Stack(
+          children: <Widget>[
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Image(
+                image: backgroundImage,
+                fit: BoxFit.fill,
+              ),
             ),
-          ),
+            Container(
+              padding: EdgeInsets.fromLTRB(10.0, 12.0, 10.0, 0.0),
+              width: MediaQuery.of(context).size.width,
+              child: title,
+            ),
+          ],
         ),
       ),
     );

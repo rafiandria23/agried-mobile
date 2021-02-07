@@ -61,35 +61,30 @@ class StudentProfileCard extends StatelessWidget {
       ],
     );
 
-    return Center(
+    return GestureDetector(
       child: Card(
         elevation: 0,
-        child: InkWell(
-          splashColor: Colors.blue[100],
-          onTap: onTap,
-          child: Center(
-            child: Stack(
-              children: <Widget>[
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                ),
-                Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Row(
-                    children: <Widget>[
-                      studentAvatar,
-                      SizedBox(
-                        width: 18.0,
-                      ),
-                      studentDetails
-                    ],
-                  ),
-                ),
-              ],
+        child: Stack(
+          children: <Widget>[
+            Container(
+              width: MediaQuery.of(context).size.width,
             ),
-          ),
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Row(
+                children: <Widget>[
+                  studentAvatar,
+                  SizedBox(
+                    width: 24.0,
+                  ),
+                  studentDetails
+                ],
+              ),
+            ),
+          ],
         ),
       ),
+      onTap: onTap,
     );
   }
 }
