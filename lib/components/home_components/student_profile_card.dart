@@ -63,6 +63,7 @@ class StudentProfileCard extends StatelessWidget {
 
     return GestureDetector(
       child: Card(
+        color: Colors.transparent,
         elevation: 0,
         child: Stack(
           children: <Widget>[

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:agried_mobile/screens.dart';
+import 'package:flutter/services.dart';
 
 class SignInScreen extends StatefulWidget {
   SignInScreen({Key key}) : super(key: key);
@@ -27,6 +28,32 @@ class _SignInScreenState extends State<SignInScreen> {
     });
   }
 
+  void _toggleKeyboard(BuildContext context) {
+    FocusScopeNode currentFocus = FocusScope.of(context);
+
+    if (!currentFocus.hasPrimaryFocus) {
+      currentFocus.unfocus();
+    }
+  }
+
+  void _handleSignIn() {
+    setState(() {
+      _email = emailController.text;
+      _password = passwordController.text;
+    });
+
+    if (_formKey.currentState.validate()) {
+      if (_email != 'siti@agried.com') {
+        print('Wrong email or password!');
+      } else if (_password != 'agried123') {
+        print('Wrong email or password!');
+      } else {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => LandingScreen()));
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final node = FocusScope.of(context);
@@ -46,9 +73,16 @@ class _SignInScreenState extends State<SignInScreen> {
       },
       controller: emailController,
       decoration: InputDecoration(
-        labelText: 'Email address',
-        contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-        border: OutlineInputBorder(),
+        hintText: 'Email address',
+        hintStyle: TextStyle(
+          fontSize: 16.0,
+        ),
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28.0),
+        ),
+        contentPadding: EdgeInsets.only(left: 24.0, top: 16.0, bottom: 16.0),
       ),
       textInputAction: TextInputAction.next,
       onEditingComplete: () => node.nextFocus(),
@@ -67,77 +101,124 @@ class _SignInScreenState extends State<SignInScreen> {
       controller: passwordController,
       obscureText: !_passwordVisibility,
       decoration: InputDecoration(
-          labelText: 'Password',
-          contentPadding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-          border: OutlineInputBorder(),
-          suffixIcon: IconButton(
-              onPressed: _togglePasswordVisibility,
-              icon: _passwordVisibility
-                  ? Icon(Icons.visibility_rounded)
-                  : Icon(Icons.visibility_off_rounded))),
+        hintText: 'Password',
+        hintStyle: TextStyle(
+          fontSize: 16.0,
+        ),
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(28.0),
+        ),
+        contentPadding: EdgeInsets.only(left: 24.0, top: 16.0, bottom: 16.0),
+        suffixIcon: IconButton(
+          onPressed: _togglePasswordVisibility,
+          padding: EdgeInsets.only(right: 20.0),
+          icon: Icon(
+            _passwordVisibility
+                ? Icons.visibility_rounded
+                : Icons.visibility_off_rounded,
+            color: Colors.grey,
+          ),
+        ),
+      ),
       textInputAction: TextInputAction.done,
       onFieldSubmitted: (_) => node.unfocus(),
     );
 
-    MaterialButton signInButton = MaterialButton(
+    FlatButton signInButton = FlatButton(
       minWidth: MediaQuery.of(context).size.width,
-      height: 50.0,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(32.0),
+      ),
+      padding: EdgeInsets.only(
+        top: 16.0,
+        bottom: 16.0,
+      ),
       color: Colors.blue,
       textColor: Colors.white,
-      onPressed: () {
-        setState(() {
-          _email = emailController.text;
-          _password = passwordController.text;
-        });
-
-        // if (_formKey.currentState.validate()) {
-        //   if (_email != 'siti@agried.com') {
-        //     print('Wrong email or password!');
-        //   } else if (_password != 'agried123') {
-        //     print('Wrong email or password!');
-        //   } else {
-        //     Navigator.push(context,
-        //         MaterialPageRoute(builder: (context) => LandingScreen()));
-        //   }
-        // }
-
-        Navigator.pushNamed(
-          context,
-          LandingScreen.route,
-        );
-      },
-      child: Text('Sign In'),
+      onPressed: _handleSignIn,
+      child: Text(
+        'Sign In'.toUpperCase(),
+        style: TextStyle(
+          fontSize: 16.0,
+          fontWeight: FontWeight.bold,
+        ),
+      ),
     );
 
-    return Scaffold(
-        body: GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: () {
-        FocusScopeNode currentFocus = FocusScope.of(context);
-
-        if (!currentFocus.hasPrimaryFocus) {
-          currentFocus.unfocus();
-        }
-      },
-      child: Form(
-        key: _formKey,
-        child: Padding(
-          padding: const EdgeInsets.all(32.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              emailTextFormField,
-              SizedBox(height: 25.0),
-              passwordTextFormField,
-              SizedBox(
-                height: 35.0,
+    MaterialBanner infoBanner = MaterialBanner(
+      content: RichText(
+        text: TextSpan(
+          text: 'You can use ',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+          children: <TextSpan>[
+            TextSpan(
+              text: 'siti@agried.com ',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
               ),
-              signInButton
-            ],
+            ),
+            TextSpan(
+              text: 'and password ',
+            ),
+            TextSpan(
+              text: 'agried123',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            )
+          ],
+        ),
+      ),
+      leading: Icon(
+        Icons.info_outline_rounded,
+        color: Colors.blue,
+      ),
+      padding: EdgeInsets.fromLTRB(16.0, 12.0, 12, 12.0),
+      backgroundColor: Colors.blue[50],
+      actions: <Widget>[SizedBox()],
+    );
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.dark,
+      child: Scaffold(
+        backgroundColor: Colors.grey[200],
+        body: GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: () {
+            _toggleKeyboard(context);
+          },
+          child: Form(
+            key: _formKey,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                left: 20.0,
+                right: 20.0,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  emailTextFormField,
+                  SizedBox(height: 20.0),
+                  passwordTextFormField,
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  infoBanner,
+                  SizedBox(
+                    height: 25.0,
+                  ),
+                  signInButton
+                ],
+              ),
+            ),
           ),
         ),
       ),
-    ));
+    );
   }
 }
