@@ -8,26 +8,12 @@ class HomeCard extends StatelessWidget {
       @required this.onTap})
       : super(key: key);
 
-  final Image backgroundImage;
+  final AssetImage backgroundImage;
   final Widget title;
   final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
-    // return Card(
-    //   semanticContainer: true,
-    //   clipBehavior: Clip.antiAliasWithSaveLayer,
-    //   child: Container(
-    //     width: MediaQuery.of(context).size.width,
-    //     height: MediaQuery.of(context).size.height,
-    //     decoration: BoxDecoration(
-    //         image: DecorationImage(image: backgroundImage, fit: BoxFit.fill)),
-    //     child: title,
-    //   ),
-    //   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
-    //   elevation: 5,
-    // );
-
     return Center(
       child: Card(
         elevation: 0,
@@ -39,7 +25,10 @@ class HomeCard extends StatelessWidget {
               children: <Widget>[
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  child: backgroundImage,
+                  child: Image(
+                    image: backgroundImage,
+                    fit: BoxFit.fill,
+                  ),
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(10.0, 12.0, 10.0, 0.0),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:agri_ed_mobile/screens.dart';
+import 'package:agried/screens.dart';
 
 class LandingScreen extends StatefulWidget {
   LandingScreen({Key key}) : super(key: key);

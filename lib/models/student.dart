@@ -1,4 +1,4 @@
-import 'package:agri_ed_mobile/models.dart';
+import 'package:agried/models.dart';
 
 class Student {
   final int id;

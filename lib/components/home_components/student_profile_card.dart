@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:agri_ed_mobile/models.dart';
+import 'package:agried/models.dart';
 
 class StudentProfileCard extends StatelessWidget {
   StudentProfileCard({
@@ -65,7 +65,7 @@ class StudentProfileCard extends StatelessWidget {
       child: Card(
         elevation: 0,
         child: InkWell(
-          splashColor: Colors.blue.withAlpha(30),
+          splashColor: Colors.blue[100],
           onTap: onTap,
           child: Center(
             child: Stack(

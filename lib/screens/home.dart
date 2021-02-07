@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:agri_ed_mobile/models.dart';
-import 'package:agri_ed_mobile/components.dart';
-import 'package:agri_ed_mobile/screens.dart';
+import 'package:agried/models.dart';
+import 'package:agried/components.dart';
+import 'package:agried/screens.dart';
+import 'package:flutter/services.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key}) : super(key: key);
@@ -38,10 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 24.0,
           ),
         ),
-        backgroundImage: Image(
-          image: AssetImage('assets/images/modules_card_bg.png'),
-          fit: BoxFit.fill,
-        ),
+        backgroundImage: AssetImage('assets/images/modules_card_bg.png'),
         onTap: () {
           Navigator.pushNamed(
             context,
@@ -59,10 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 24.0,
           ),
         ),
-        backgroundImage: Image(
-          image: AssetImage('assets/images/resources_card_bg.png'),
-          fit: BoxFit.fill,
-        ),
+        backgroundImage: AssetImage('assets/images/resources_card_bg.png'),
         onTap: () {
           Navigator.pushNamed(
             context,
@@ -80,10 +75,7 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 24.0,
           ),
         ),
-        backgroundImage: Image(
-          image: AssetImage('assets/images/reporting_card_bg.png'),
-          fit: BoxFit.fill,
-        ),
+        backgroundImage: AssetImage('assets/images/reporting_card_bg.png'),
         onTap: () {
           Navigator.pushNamed(
             context,
@@ -101,10 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
             fontSize: 24.0,
           ),
         ),
-        backgroundImage: Image(
-          image: AssetImage('assets/images/private_sector_card_bg.png'),
-          fit: BoxFit.fill,
-        ),
+        backgroundImage: AssetImage('assets/images/private_sector_card_bg.png'),
         onTap: () {
           Navigator.pushNamed(
             context,
@@ -114,19 +103,23 @@ class _HomeScreenState extends State<HomeScreen> {
       )
     ];
 
-    return Scaffold(
-      body: SafeArea(
-        child: ListView.separated(
-          padding: const EdgeInsets.all(32.0),
-          itemCount: _homeCards.length,
-          itemBuilder: (BuildContext itemBuilderContext, int index) {
-            return _homeCards[index];
-          },
-          separatorBuilder: (BuildContext separatorBuilderContext, int index) {
-            return SizedBox(
-              height: 10.0,
-            );
-          },
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.dark,
+      child: Scaffold(
+        body: SafeArea(
+          child: ListView.separated(
+            padding: const EdgeInsets.all(32.0),
+            itemCount: _homeCards.length,
+            itemBuilder: (BuildContext itemBuilderContext, int index) {
+              return _homeCards[index];
+            },
+            separatorBuilder:
+                (BuildContext separatorBuilderContext, int index) {
+              return SizedBox(
+                height: 10.0,
+              );
+            },
+          ),
         ),
       ),
     );
