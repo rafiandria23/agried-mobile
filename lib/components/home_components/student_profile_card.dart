@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:agried/models.dart';
+import 'package:agried_mobile/models.dart';
 
 class StudentProfileCard extends StatelessWidget {
   StudentProfileCard({

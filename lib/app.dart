@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:agried/screens.dart';
+import 'package:agried_mobile/screens.dart';
 
 class App extends StatefulWidget {
   // This widget is the root of your application.
