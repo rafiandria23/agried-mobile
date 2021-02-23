@@ -32,7 +32,7 @@ class _AppState extends State<App> {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.comfortable,
       ),
-      initialRoute: SignInScreen.route,
+      initialRoute: LandingScreen.route,
       home: LandingScreen(),
       onGenerateRoute: (settings) {
         switch (settings.name) {
