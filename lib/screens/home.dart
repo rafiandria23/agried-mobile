@@ -33,7 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
           '''Precision Agriculture (PA) is now a term used throughout agricultural systems worldwide, but what is meant by Precision Agriculture?
 
           This introductory module provides a background to the evolution of PA, the principle philosophy and goals of a PA management strategy and some of the steps required to adopt PA in cropping systems.
-
+          
           It provides a stepping stone to subsequent modules in this series that will investigate the theories technologies and methodologies behind the adoption of PA within grain production systems in Indonesia.''',
     ),
     Module(

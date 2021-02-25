@@ -20,7 +20,7 @@ class ModuleScreen extends StatelessWidget {
         title: Text(modules[moduleIndex].moduleTitle),
       ),
       body: Center(
-        child: Column(
+        child: ListView(
           children: <Widget>[
             ModuleBase(
               // moduleTitle: modules[moduleIndex].moduleTitle,
@@ -28,17 +28,14 @@ class ModuleScreen extends StatelessWidget {
               images: modules[moduleIndex].images,
               content: modules[moduleIndex].content,
             ),
-            FlatButton(
-              minWidth: MediaQuery.of(context).size.width,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(32.0),
+            IconButton(
+              icon: ImageIcon(
+                AssetImage('assets/icons/down_arrows.png'),
               ),
               padding: EdgeInsets.only(
                 top: 16.0,
                 bottom: 16.0,
               ),
-              color: Colors.blue,
-              textColor: Colors.white,
               onPressed: () {
                 if (modules.length == moduleIndex + 1) {
                   Navigator.pushNamed(context, LandingScreen.route);
@@ -54,13 +51,6 @@ class ModuleScreen extends StatelessWidget {
                   );
                 }
               },
-              child: Text(
-                'Sign In'.toUpperCase(),
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
             ),
           ],
         ),

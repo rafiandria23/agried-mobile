@@ -17,18 +17,42 @@ class ModuleBase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
-      crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: images
               .map((image) => Image(
                     image: image,
+                    fit: BoxFit.fill,
+                    width: MediaQuery.of(context).size.width / images.length,
                   ))
               .toList(),
         ),
-        Text(title),
-        Text(content),
+        Padding(
+          padding: EdgeInsets.all(32.0),
+          child: Column(
+            children: <Widget>[
+              Text(
+                title,
+                style: TextStyle(
+                  fontSize: 32.0,
+                  fontWeight: FontWeight.bold,
+                ),
+                textAlign: TextAlign.center,
+              ),
+              SizedBox(
+                height: 20.0,
+              ),
+              Text(
+                content,
+                style: TextStyle(
+                  fontSize: 16.0,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
+        ),
       ],
     );
   }
