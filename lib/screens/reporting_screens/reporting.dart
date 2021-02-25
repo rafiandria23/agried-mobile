@@ -29,7 +29,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
 
   String _personalDetails;
   String _schoolName;
-  String _selectedModule;
+  String _selectedModuleTitle;
   String _reportDetails;
 
   File _reportDocument;
@@ -45,7 +45,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
     );
 
     if (result != null) {
-      File file = File(result.files.single.path);
+      File file = File(result.files.single.name);
 
       setState(() {
         _reportDocument = file;
@@ -67,7 +67,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
 
     if (result != null) {
       List<File> files =
-          result.files.map((PlatformFile file) => File(file.path)).toList();
+          result.files.map((PlatformFile file) => File(file.name)).toList();
 
       setState(() {
         _reportImages = files;
@@ -91,8 +91,20 @@ class _ReportingScreenState extends State<ReportingScreen> {
   Widget build(BuildContext context) {
     final FocusScopeNode node = FocusScope.of(context);
 
-    Text title = Text('IPB-TVET');
-    Text subtitle = Text('Module Reporting');
+    Text title = Text(
+      'IPB-TVET',
+      style: TextStyle(
+        fontSize: 28.0,
+        fontWeight: FontWeight.bold,
+      ),
+    );
+    Text subtitle = Text(
+      'Module Reporting',
+      style: TextStyle(
+        fontSize: 28.0,
+        fontWeight: FontWeight.bold,
+      ),
+    );
 
     AssetImage reportingImage =
         AssetImage('assets/images/reporting/reporting_image.png');
@@ -101,9 +113,9 @@ class _ReportingScreenState extends State<ReportingScreen> {
       autofocus: true,
       controller: personalDetailsController,
       decoration: InputDecoration(
-        hintText: 'Personal Details',
-        hintStyle: TextStyle(fontSize: 16.0),
+        labelText: 'Personal Details',
         filled: true,
+        isDense: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(),
       ),
@@ -114,10 +126,8 @@ class _ReportingScreenState extends State<ReportingScreen> {
     TextFormField schoolNameTextFormField = TextFormField(
       controller: schoolNameController,
       decoration: InputDecoration(
-        hintText: 'Name of School',
-        hintStyle: TextStyle(
-          fontSize: 16.0,
-        ),
+        labelText: 'School Name',
+        isDense: true,
         filled: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(),
@@ -126,59 +136,62 @@ class _ReportingScreenState extends State<ReportingScreen> {
       onEditingComplete: () => node.nextFocus(),
     );
 
-    FormField<String> moduleFormField = FormField<String>(
-      builder: (FormFieldState<String> state) {
-        return InputDecorator(
-          decoration: InputDecoration(
-            labelStyle: TextStyle(
-              fontSize: 16.0,
-            ),
-            errorStyle: TextStyle(
-              color: Colors.redAccent,
-              fontSize: 16.0,
-            ),
-            hintText: 'Select Report Module',
-            border: OutlineInputBorder(),
-          ),
-          isEmpty: _selectedModule == null,
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-              value: _selectedModule,
-              isDense: true,
-              onChanged: (String newSelectedModule) {
-                setState(() {
-                  _selectedModule = newSelectedModule;
-                  state.didChange(newSelectedModule);
-                });
-              },
-              items: moduleTitles.map((String moduleTitle) {
-                return DropdownMenuItem<String>(
-                  value: moduleTitle,
-                  child: Text(moduleTitle),
-                );
-              }).toList(),
-            ),
-          ),
-        );
-      },
+    DropdownButtonFormField<String> moduleDropdown =
+        DropdownButtonFormField<String>(
+      value: _selectedModuleTitle,
+      items: moduleTitles
+          .map((moduleTitle) => DropdownMenuItem<String>(
+                value: moduleTitle,
+                child: Text(moduleTitle),
+              ))
+          .toList(),
+      isDense: true,
+      decoration: InputDecoration(
+        labelText: 'Report Module',
+        errorStyle: TextStyle(
+          color: Colors.redAccent,
+        ),
+        isDense: true,
+        filled: true,
+        fillColor: Colors.white,
+        border: OutlineInputBorder(),
+      ),
+      onChanged: (newSelectedModuleTitle) => setState(() {
+        _selectedModuleTitle = newSelectedModuleTitle;
+      }),
     );
 
     TextFormField reportDetailsTextFormField = TextFormField(
       maxLength: 3000,
       maxLengthEnforced: true,
       maxLines: null,
+      minLines: 10,
       controller: reportDetailsController,
       decoration: InputDecoration(
-        hintText: 'Report Details',
-        hintStyle: TextStyle(
-          fontSize: 16.0,
-        ),
+        labelText: 'Report Details',
+        isDense: true,
         filled: true,
         fillColor: Colors.white,
         border: OutlineInputBorder(),
       ),
       keyboardType: TextInputType.multiline,
     );
+
+    Text reportDocumentPath = _reportDocument != null
+        ? Text(
+            _reportDocument.absolute.path,
+            textAlign: TextAlign.center,
+          )
+        : Text('');
+
+    List<Text> reportImagePaths = _reportImages != null
+        ? _reportImages
+            .map((reportImage) => Text(
+                  reportImage.absolute.path,
+                  textAlign: TextAlign.center,
+                ))
+            .toList()
+        : <Text>[Text('')];
 
     return Scaffold(
       appBar: AppBar(
@@ -193,7 +206,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
           key: _formKey,
           child: ListView(
             padding: EdgeInsets.symmetric(
-              vertical: 15,
+              vertical: 50,
               horizontal: 30,
             ),
             children: <Widget>[
@@ -206,8 +219,14 @@ class _ReportingScreenState extends State<ReportingScreen> {
                   ),
                 ],
               ),
+              SizedBox(
+                height: 25.0,
+              ),
               title,
               subtitle,
+              SizedBox(
+                height: 25.0,
+              ),
               personalDetailsTextFormField,
               SizedBox(
                 height: 20.0,
@@ -216,27 +235,46 @@ class _ReportingScreenState extends State<ReportingScreen> {
               SizedBox(
                 height: 20.0,
               ),
-              moduleFormField,
+              moduleDropdown,
               SizedBox(
                 height: 20.0,
               ),
               reportDetailsTextFormField,
               SizedBox(
-                height: 20.0,
+                height: 10.0,
               ),
-              FlatButton(
-                child: Text('UPLOAD PDF'),
+              TextButton.icon(
+                icon: Icon(Icons.note_add),
+                label: Text('Upload Document'.toUpperCase()),
                 onPressed: _handleUploadDocument,
               ),
               SizedBox(
+                height: 10.0,
+              ),
+              reportDocumentPath,
+              SizedBox(
                 height: 20.0,
               ),
-              FlatButton(
-                child: Text('UPLOAD PNG'),
+              TextButton.icon(
+                icon: Icon(Icons.add_a_photo_outlined),
+                label: Text('Upload Images'.toUpperCase()),
                 onPressed: _handleUploadImage,
               ),
               SizedBox(
-                height: 25.0,
+                height: 10.0,
+              ),
+              ...reportImagePaths,
+              SizedBox(
+                height: 30.0,
+              ),
+              SizedBox(
+                height: 40.0,
+                child: ElevatedButton(
+                  onPressed: _handleSubmitReport,
+                  child: Text(
+                    'Finish'.toUpperCase(),
+                  ),
+                ),
               ),
             ],
           ),
