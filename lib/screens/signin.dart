@@ -56,7 +56,7 @@ class _SignInScreenState extends State<SignInScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final node = FocusScope.of(context);
+    final FocusScopeNode node = FocusScope.of(context);
 
     TextFormField emailTextFormField = TextFormField(
       autofocus: true,
@@ -85,6 +85,7 @@ class _SignInScreenState extends State<SignInScreen> {
         contentPadding: EdgeInsets.only(left: 24.0, top: 16.0, bottom: 16.0),
       ),
       textInputAction: TextInputAction.next,
+      keyboardType: TextInputType.emailAddress,
       onEditingComplete: () => node.nextFocus(),
     );
 
@@ -203,7 +204,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   emailTextFormField,
-                  SizedBox(height: 20.0),
+                  SizedBox(
+                    height: 20.0,
+                  ),
                   passwordTextFormField,
                   SizedBox(
                     height: 20.0,

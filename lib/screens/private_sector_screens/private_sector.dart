@@ -144,15 +144,16 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
           );
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Private Sector'),
+      ),
       body: Center(
-        child: SafeArea(
-          child: Column(
-            children: <Widget>[
-              title,
-              subtitle,
-              jobList,
-            ],
-          ),
+        child: Column(
+          children: <Widget>[
+            title,
+            subtitle,
+            jobList,
+          ],
         ),
       ),
     );
