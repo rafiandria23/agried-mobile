@@ -114,6 +114,24 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
   ];
   final List<Job> _filteredJobs = <Job>[];
 
+  final GlobalKey<FormState> _filterFormKey = GlobalKey<FormState>();
+
+  final TextEditingController whatController = TextEditingController();
+  final TextEditingController whereController = TextEditingController();
+
+  String whatQuery;
+  String whereQuery;
+
+  void _toggleKeyboard(BuildContext context) {
+    FocusScopeNode currentFocus = FocusScope.of(context);
+
+    if (!currentFocus.hasPrimaryFocus) {
+      currentFocus.unfocus();
+    }
+  }
+
+  void _handleFilter() {}
+
   @override
   void initState() {
     super.initState();
@@ -125,8 +143,75 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Text title = Text('IPB-TVET');
-    Text subtitle = Text('Intern Job Search');
+    Text title = Text(
+      'IPB-TVET',
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 28.0,
+      ),
+      textAlign: TextAlign.justify,
+    );
+    Text subtitle = Text(
+      'Intern Job Search',
+      style: TextStyle(
+        fontWeight: FontWeight.bold,
+        fontSize: 28.0,
+      ),
+      textAlign: TextAlign.justify,
+    );
+
+    Form filterForm = Form(
+      key: _filterFormKey,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          TextFormField(
+            controller: whatController,
+            decoration: InputDecoration(
+              hintText: 'Agriculture Internship',
+              isDense: true,
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(),
+            ),
+            keyboardType: TextInputType.text,
+          ),
+          SizedBox(
+            height: 15.0,
+          ),
+          TextFormField(
+            controller: whereController,
+            decoration: InputDecoration(
+              hintText: 'City, state, zip code',
+              isDense: true,
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(),
+            ),
+            keyboardType: TextInputType.text,
+          ),
+          SizedBox(
+            height: 15.0,
+          ),
+          Container(
+            height: 40.0,
+            child: FlatButton(
+              child: Text(
+                'Find',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              onPressed: _handleFilter,
+              shape: RoundedRectangleBorder(),
+              color: Colors.blue,
+              textColor: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
 
     Widget jobList = _filteredJobs.isEmpty
         ? Text(
@@ -147,13 +232,28 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
       appBar: AppBar(
         title: Text('Private Sector'),
       ),
-      body: Center(
-        child: Column(
-          children: <Widget>[
-            title,
-            subtitle,
-            jobList,
-          ],
+      body: GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: () {
+          _toggleKeyboard(context);
+        },
+        child: Padding(
+          padding: EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              title,
+              subtitle,
+              SizedBox(
+                height: 20.0,
+              ),
+              filterForm,
+              SizedBox(
+                height: 20.0,
+              ),
+              jobList,
+            ],
+          ),
         ),
       ),
     );
