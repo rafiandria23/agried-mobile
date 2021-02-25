@@ -21,6 +21,62 @@ class _HomeScreenState extends State<HomeScreen> {
     serialNo: 'S123876-e',
   );
 
+  final List<Module> _modules = <Module>[
+    Module(
+      moduleTitle: 'Module A',
+      title:
+          'An introduction to Precision Agriculture for Indonesia Rice Cultivation',
+      images: <AssetImage>[
+        AssetImage('assets/images/modules/a/module_a_image.png'),
+      ],
+      content:
+          '''Precision Agriculture (PA) is now a term used throughout agricultural systems worldwide, but what is meant by Precision Agriculture?
+
+          This introductory module provides a background to the evolution of PA, the principle philosophy and goals of a PA management strategy and some of the steps required to adopt PA in cropping systems.
+
+          It provides a stepping stone to subsequent modules in this series that will investigate the theories technologies and methodologies behind the adoption of PA within grain production systems in Indonesia.''',
+    ),
+    Module(
+      moduleTitle: 'Module B',
+      title: 'Navigation Satellite Systems and Precision Agriculture',
+      images: <AssetImage>[
+        AssetImage('assets/images/modules/b/module_b_image.png'),
+      ],
+      content:
+          '''Global Navigation Satellite Systems and Precision Agriculture Satellite-based navigation systems are truly the enabling technology of Precision Agriculture (PA). They provide a relatively simple and robust technique for identifying any location on the Earth's surface, or, in the case of aircraft, relative to the surface.
+          
+          This permits agricultural and environmental operation to be geo-referenced and spatially analysed. A wide range of satellite-based navigation and geo-location tools are available to suit different agronomic situations from point crop/soil sampling to autonomous vehicle guidance.''',
+    ),
+    Module(
+      moduleTitle: 'Module C',
+      title: 'Yield Variability and Site-Specific Crop Management',
+      images: <AssetImage>[
+        AssetImage(
+          'assets/images/modules/c/module_c_image.png',
+        ),
+      ],
+      content:
+          """There is a large list of important components of a farming operation for which it might be useful to have data on the extent of variability. For some, such as fertiliser quality, farmers rely on outside companies to minimise the variation and so 'remove' the need for substantial 'on-farm' management.
+          
+          Others, such as crop yield, soil properties and pest and disease outbreaks, vary differently on each farm. Local knowledge about variability in these parts of the farming system can be used to build site-specific crop management (SSCM) strategies. SSCM can be used to identify and treat any areas where yield potential can be improved or better match input use to the natural yield potential across a field or farm.""",
+    ),
+    Module(
+        moduleTitle: 'Module D',
+        title: 'Development Agriculture',
+        images: <AssetImage>[
+          AssetImage(
+            'assets/images/modules/d/module_d_image_1.png',
+          ),
+          AssetImage(
+            'assets/images/modules/d/module_d_image_2.png',
+          ),
+        ],
+        content:
+            '''The Development Agriculture theme brings together researchers with vast experience and diverse expertise from across the Faculties and with other University of Sydney Centres, such as the Charles Perkins Centre, Sydney Southeast Asia Centre, and Marie Bashir Institute for Infectious Diseases and Biosecurity.
+            
+            The goal of the Development Agriculture theme is to initiate and facilitate interdisciplinary collaborations by uniting researchers from multiple disciplines with expertise relating to agriculture and food in developing economies.'''),
+  ];
+
   @override
   Widget build(BuildContext context) {
     List<Widget> _homeCards = <Widget>[
@@ -41,10 +97,14 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         backgroundImage: AssetImage('assets/images/modules_card_bg.png'),
         onTap: () {
-          Navigator.pushNamed(
-            context,
-            ModulesScreen.route,
-          );
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ModuleScreen(
+                  modules: _modules,
+                  moduleIndex: 0,
+                ),
+              ));
         },
       ),
       HomeCard(

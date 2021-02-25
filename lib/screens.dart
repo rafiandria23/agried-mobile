@@ -4,7 +4,9 @@ export 'screens/landing.dart';
 export 'screens/home.dart';
 
 // Home Screens
-export 'screens/home_screens/modules.dart';
 export 'screens/home_screens/resources.dart';
 export 'screens/home_screens/reporting.dart';
 export 'screens/home_screens/private_sector.dart';
+
+// Module Screens
+export 'screens/module_screens/module.dart';

@@ -46,6 +46,10 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/dummies/
+    - assets/images/modules/a/
+    - assets/images/modules/b/
+    - assets/images/modules/c/
+    - assets/images/modules/d/
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see

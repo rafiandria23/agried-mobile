@@ -4,13 +4,13 @@ class ModuleBase extends StatelessWidget {
   ModuleBase({
     Key key,
     @required this.title,
-    @required this.moduleTitle,
+    // @required this.moduleTitle,
     @required this.images,
     @required this.content,
   });
 
   final String title;
-  final String moduleTitle;
+  // final String moduleTitle;
   final List<AssetImage> images;
   final String content;
 
@@ -20,7 +20,6 @@ class ModuleBase extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Text(moduleTitle),
         Row(
           children: images
               .map((image) => Image(

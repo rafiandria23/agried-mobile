@@ -42,8 +42,8 @@ class _AppState extends State<App> {
           case LandingScreen.route:
             return MaterialPageRoute(builder: (_) => LandingScreen());
 
-          case ModulesScreen.route:
-            return MaterialPageRoute(builder: (_) => ModulesScreen());
+          // case ModulesScreen.route:
+          //   return MaterialPageRoute(builder: (_) => ModulesScreen());
 
           case ResourcesScreen.route:
             return MaterialPageRoute(builder: (_) => ResourcesScreen());
