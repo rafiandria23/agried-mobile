@@ -79,7 +79,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> _homeCards = <Widget>[
+    List<Widget> items = <Widget>[
+      Padding(
+        padding: EdgeInsets.only(
+          bottom: 20.0,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: <Widget>[
+            Image(
+              image: AssetImage(
+                'assets/icons/logo.png',
+              ),
+              height: 64.0,
+            ),
+          ],
+        ),
+      ),
       StudentProfileCard(
         profileImage: AssetImage('assets/dummies/student_profile_image.png'),
         student: _currentStudent,
@@ -166,12 +182,13 @@ class _HomeScreenState extends State<HomeScreen> {
     return AnnotatedRegion<SystemUiOverlayStyle>(
       value: SystemUiOverlayStyle.dark,
       child: Scaffold(
+        backgroundColor: Colors.white,
         body: SafeArea(
           child: ListView.separated(
-            padding: const EdgeInsets.all(32.0),
-            itemCount: _homeCards.length,
+            padding: const EdgeInsets.all(12.0),
+            itemCount: items.length,
             itemBuilder: (BuildContext itemBuilderContext, int index) {
-              return _homeCards[index];
+              return items[index];
             },
             separatorBuilder:
                 (BuildContext separatorBuilderContext, int index) {

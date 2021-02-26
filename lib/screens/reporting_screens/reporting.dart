@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:agried_mobile/screens.dart';
 
 class ReportingScreen extends StatefulWidget {
   ReportingScreen({Key key}) : super(key: key);
@@ -94,15 +95,17 @@ class _ReportingScreenState extends State<ReportingScreen> {
     Text title = Text(
       'IPB-TVET',
       style: TextStyle(
-        fontSize: 28.0,
+        fontSize: 32.0,
         fontWeight: FontWeight.bold,
+        color: Colors.white,
       ),
     );
     Text subtitle = Text(
       'Module Reporting',
       style: TextStyle(
-        fontSize: 28.0,
+        fontSize: 32.0,
         fontWeight: FontWeight.bold,
+        color: Colors.white,
       ),
     );
 
@@ -117,7 +120,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
         filled: true,
         isDense: true,
         fillColor: Colors.white,
-        border: OutlineInputBorder(),
+        border: UnderlineInputBorder(),
       ),
       textInputAction: TextInputAction.next,
       onEditingComplete: () => node.nextFocus(),
@@ -130,7 +133,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
         isDense: true,
         filled: true,
         fillColor: Colors.white,
-        border: OutlineInputBorder(),
+        border: UnderlineInputBorder(),
       ),
       textInputAction: TextInputAction.next,
       onEditingComplete: () => node.nextFocus(),
@@ -154,7 +157,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
         isDense: true,
         filled: true,
         fillColor: Colors.white,
-        border: OutlineInputBorder(),
+        border: UnderlineInputBorder(),
       ),
       onChanged: (newSelectedModuleTitle) => setState(() {
         _selectedModuleTitle = newSelectedModuleTitle;
@@ -169,10 +172,13 @@ class _ReportingScreenState extends State<ReportingScreen> {
       controller: reportDetailsController,
       decoration: InputDecoration(
         labelText: 'Report Details',
+        counterStyle: TextStyle(
+          color: Colors.white,
+        ),
         isDense: true,
         filled: true,
         fillColor: Colors.white,
-        border: OutlineInputBorder(),
+        border: UnderlineInputBorder(),
       ),
       keyboardType: TextInputType.multiline,
     );
@@ -180,6 +186,9 @@ class _ReportingScreenState extends State<ReportingScreen> {
     Text reportDocumentPath = _reportDocument != null
         ? Text(
             _reportDocument.absolute.path,
+            style: TextStyle(
+              color: Colors.white,
+            ),
             textAlign: TextAlign.center,
           )
         : Text('');
@@ -188,6 +197,9 @@ class _ReportingScreenState extends State<ReportingScreen> {
         ? _reportImages
             .map((reportImage) => Text(
                   reportImage.absolute.path,
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                   textAlign: TextAlign.center,
                 ))
             .toList()
@@ -197,6 +209,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
       appBar: AppBar(
         title: Text('Reporting'),
       ),
+      backgroundColor: Colors.blueGrey[800],
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
         onTap: () {
@@ -212,10 +225,19 @@ class _ReportingScreenState extends State<ReportingScreen> {
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Image(
                     image: reportingImage,
+                  ),
+                  SizedBox(
+                    width: 20.0,
+                  ),
+                  Image(
+                    image: AssetImage(
+                      'assets/icons/logo.png',
+                    ),
+                    height: 48.0,
                   ),
                 ],
               ),
@@ -224,6 +246,30 @@ class _ReportingScreenState extends State<ReportingScreen> {
               ),
               title,
               subtitle,
+              SizedBox(
+                height: 25.0,
+              ),
+              FlatButton(
+                child: Text(
+                  'Click here to complete online',
+                  style: TextStyle(
+                    color: Colors.blue,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0,
+                  ),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => OnlineReportingScreen(
+                        reportURL:
+                            'https://www.surveymonkey.com/r/TVET_Teacher_Activity_Report',
+                      ),
+                    ),
+                  );
+                },
+              ),
               SizedBox(
                 height: 25.0,
               ),

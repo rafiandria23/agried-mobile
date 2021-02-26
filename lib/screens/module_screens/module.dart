@@ -22,6 +22,20 @@ class ModuleScreen extends StatelessWidget {
       body: Center(
         child: ListView(
           children: <Widget>[
+            Padding(
+              padding: EdgeInsets.all(30.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
+                  Image(
+                    image: AssetImage(
+                      'assets/icons/logo.png',
+                    ),
+                    height: 48.0,
+                  ),
+                ],
+              ),
+            ),
             ModuleBase(
               // moduleTitle: modules[moduleIndex].moduleTitle,
               title: modules[moduleIndex].title,

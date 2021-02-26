@@ -14,3 +14,4 @@ export 'screens/private_sector_screens/private_sector.dart';
 
 // Reporting Screens
 export 'screens/reporting_screens/reporting.dart';
+export 'screens/reporting_screens/online_reporting.dart';

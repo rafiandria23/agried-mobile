@@ -38,6 +38,8 @@ class _LandingScreenState extends State<LandingScreen> {
       body: _screenOptions.elementAt(_selectedIdx),
       bottomNavigationBar: BottomNavigationBar(
         unselectedItemColor: Colors.grey,
+        type: BottomNavigationBarType.fixed,
+        iconSize: 28.0,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: ImageIcon(

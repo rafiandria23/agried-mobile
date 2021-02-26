@@ -169,6 +169,21 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
           TextFormField(
             controller: whatController,
             decoration: InputDecoration(
+              prefixIcon: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      'What',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                ],
+              ),
               hintText: 'Agriculture Internship',
               isDense: true,
               filled: true,
@@ -183,6 +198,21 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
           TextFormField(
             controller: whereController,
             decoration: InputDecoration(
+              prefixIcon: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 10),
+                    child: Text(
+                      'Where',
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                ],
+              ),
               hintText: 'City, state, zip code',
               isDense: true,
               filled: true,
@@ -242,6 +272,21 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
+              SizedBox(
+                height: 20.0,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Image(
+                    image: AssetImage(
+                      'assets/icons/logo.png',
+                    ),
+                    height: 48.0,
+                  ),
+                ],
+              ),
               title,
               subtitle,
               SizedBox(

@@ -25,6 +25,7 @@ class HomeCard extends StatelessWidget {
           children: <Widget>[
             Container(
               width: MediaQuery.of(context).size.width,
+              height: 120.0,
               child: Image(
                 image: backgroundImage,
                 fit: BoxFit.fill,

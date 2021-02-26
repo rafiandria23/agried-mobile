@@ -18,7 +18,7 @@ class StudentProfileCard extends StatelessWidget {
   Widget build(BuildContext context) {
     CircleAvatar studentAvatar = CircleAvatar(
       radius: 55,
-      backgroundColor: Colors.blue,
+      backgroundColor: Colors.teal[400],
       child: CircleAvatar(
         radius: 50,
         backgroundImage: profileImage,
@@ -31,61 +31,122 @@ class StudentProfileCard extends StatelessWidget {
         Text(
           student.name,
           style: TextStyle(
+            fontSize: 18.0,
             fontWeight: FontWeight.bold,
+            color: Colors.blue[900],
           ),
         ),
         Text(
           'Kelas ${student.className}',
           style: TextStyle(
+            fontSize: 18.0,
             fontWeight: FontWeight.bold,
+            color: Colors.blue[900],
           ),
         ),
         Text(
           student.major,
           style: TextStyle(
+            fontSize: 18.0,
             fontWeight: FontWeight.bold,
+            color: Colors.blue[900],
           ),
         ),
         Text(
           student.school.name,
           style: TextStyle(
+            fontSize: 18.0,
             fontWeight: FontWeight.bold,
+            color: Colors.blue[900],
           ),
         ),
         Text(
           'No: ${student.serialNo}',
           style: TextStyle(
+            fontSize: 18.0,
             fontWeight: FontWeight.bold,
+            color: Colors.blue[900],
           ),
         ),
       ],
     );
 
     return GestureDetector(
+      onTap: onTap,
       child: Card(
         color: Colors.transparent,
         elevation: 0,
-        child: Stack(
-          children: <Widget>[
-            Container(
-              width: MediaQuery.of(context).size.width,
+        child: Container(
+          decoration: new BoxDecoration(
+            borderRadius: BorderRadius.circular(12.0),
+            gradient: new LinearGradient(
+              colors: [
+                Colors.white,
+                Colors.orange[700],
+              ],
+              begin: const FractionalOffset(0.1, 0.0),
+              end: const FractionalOffset(1.2, 0.0),
+              stops: [
+                0.0,
+                1.0,
+              ],
+              tileMode: TileMode.clamp,
             ),
-            Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Row(
-                children: <Widget>[
-                  studentAvatar,
-                  SizedBox(
-                    width: 24.0,
-                  ),
-                  studentDetails
-                ],
+          ),
+          child: Stack(
+            children: <Widget>[
+              Container(
+                width: MediaQuery.of(context).size.width,
               ),
-            ),
-          ],
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Row(
+                  children: <Widget>[
+                    studentAvatar,
+                    SizedBox(
+                      width: 12.0,
+                    ),
+                    studentDetails,
+                    SizedBox(
+                      width: 36.0,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image(
+                          image: AssetImage(
+                            'assets/icons/clock.png',
+                          ),
+                        ),
+                        SizedBox(
+                          height: 8.0,
+                        ),
+                        Text(
+                          'Next class',
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue[900],
+                          ),
+                        ),
+                        Text(
+                          'in 22 mins',
+                          style: TextStyle(
+                            fontSize: 12.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue[900],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-      onTap: onTap,
     );
   }
 }
