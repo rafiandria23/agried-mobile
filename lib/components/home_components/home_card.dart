@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_flutter/responsive_flutter.dart';
 
 class HomeCard extends StatelessWidget {
   HomeCard(
@@ -25,14 +26,19 @@ class HomeCard extends StatelessWidget {
           children: <Widget>[
             Container(
               width: MediaQuery.of(context).size.width,
-              height: 120.0,
+              height: ResponsiveFlutter.of(context).verticalScale(100.0),
               child: Image(
                 image: backgroundImage,
                 fit: BoxFit.fill,
               ),
             ),
             Container(
-              padding: EdgeInsets.fromLTRB(10.0, 12.0, 10.0, 0.0),
+              padding: EdgeInsets.only(
+                left: ResponsiveFlutter.of(context).moderateScale(10.0),
+                top: ResponsiveFlutter.of(context).moderateScale(12.0),
+                right: ResponsiveFlutter.of(context).moderateScale(10.0),
+                bottom: ResponsiveFlutter.of(context).moderateScale(0.0),
+              ),
               width: MediaQuery.of(context).size.width,
               child: title,
             ),

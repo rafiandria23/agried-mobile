@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:agried_mobile/models.dart';
+import 'package:responsive_flutter/responsive_flutter.dart';
 
 class StudentProfileCard extends StatelessWidget {
   StudentProfileCard({
@@ -17,10 +18,10 @@ class StudentProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CircleAvatar studentAvatar = CircleAvatar(
-      radius: 55,
+      radius: ResponsiveFlutter.of(context).scale(55),
       backgroundColor: Colors.teal[400],
       child: CircleAvatar(
-        radius: 50,
+        radius: ResponsiveFlutter.of(context).scale(50),
         backgroundImage: profileImage,
       ),
     );
@@ -31,7 +32,7 @@ class StudentProfileCard extends StatelessWidget {
         Text(
           student.name,
           style: TextStyle(
-            fontSize: 18.0,
+            fontSize: ResponsiveFlutter.of(context).fontSize(2.0),
             fontWeight: FontWeight.bold,
             color: Colors.blue[900],
           ),
@@ -39,7 +40,7 @@ class StudentProfileCard extends StatelessWidget {
         Text(
           'Kelas ${student.className}',
           style: TextStyle(
-            fontSize: 18.0,
+            fontSize: ResponsiveFlutter.of(context).fontSize(2.0),
             fontWeight: FontWeight.bold,
             color: Colors.blue[900],
           ),
@@ -47,7 +48,7 @@ class StudentProfileCard extends StatelessWidget {
         Text(
           student.major,
           style: TextStyle(
-            fontSize: 18.0,
+            fontSize: ResponsiveFlutter.of(context).fontSize(2.0),
             fontWeight: FontWeight.bold,
             color: Colors.blue[900],
           ),
@@ -55,7 +56,7 @@ class StudentProfileCard extends StatelessWidget {
         Text(
           student.school.name,
           style: TextStyle(
-            fontSize: 18.0,
+            fontSize: ResponsiveFlutter.of(context).fontSize(2.0),
             fontWeight: FontWeight.bold,
             color: Colors.blue[900],
           ),
@@ -63,7 +64,7 @@ class StudentProfileCard extends StatelessWidget {
         Text(
           'No: ${student.serialNo}',
           style: TextStyle(
-            fontSize: 18.0,
+            fontSize: ResponsiveFlutter.of(context).fontSize(2.0),
             fontWeight: FontWeight.bold,
             color: Colors.blue[900],
           ),
@@ -99,33 +100,39 @@ class StudentProfileCard extends StatelessWidget {
                 width: MediaQuery.of(context).size.width,
               ),
               Padding(
-                padding: EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(
+                  ResponsiveFlutter.of(context).moderateScale(1.0),
+                ),
                 child: Row(
                   children: <Widget>[
                     studentAvatar,
                     SizedBox(
-                      width: 12.0,
+                      width: ResponsiveFlutter.of(context).scale(12.0),
                     ),
                     studentDetails,
                     SizedBox(
-                      width: 36.0,
+                      width: ResponsiveFlutter.of(context).scale(20.0),
                     ),
                     Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         Image(
+                          height:
+                              ResponsiveFlutter.of(context).verticalScale(55.0),
                           image: AssetImage(
                             'assets/icons/clock.png',
                           ),
                         ),
                         SizedBox(
-                          height: 8.0,
+                          height:
+                              ResponsiveFlutter.of(context).verticalScale(1.0),
                         ),
                         Text(
                           'Next class',
                           style: TextStyle(
-                            fontSize: 12.0,
+                            fontSize:
+                                ResponsiveFlutter.of(context).fontSize(1.5),
                             fontWeight: FontWeight.bold,
                             color: Colors.blue[900],
                           ),
@@ -133,7 +140,8 @@ class StudentProfileCard extends StatelessWidget {
                         Text(
                           'in 22 mins',
                           style: TextStyle(
-                            fontSize: 12.0,
+                            fontSize:
+                                ResponsiveFlutter.of(context).fontSize(1.5),
                             fontWeight: FontWeight.bold,
                             color: Colors.blue[900],
                           ),
