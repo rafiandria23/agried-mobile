@@ -63,26 +63,39 @@ class _NewsScreenState extends State<NewsScreen> {
     }
   }
 
+  Widget handleRender(BuildContext context) {
+    if (loading && news.length == 0) {
+      return Shimmer.fromColors(
+        baseColor: Colors.grey[300],
+        highlightColor: Colors.grey[100],
+        enabled: loading,
+        child: ListView.builder(
+          shrinkWrap: true,
+          itemBuilder: (_, __) => Padding(
+            padding: EdgeInsets.only(
+              bottom: ResponsiveFlutter.of(context).moderateScale(16.0),
+            ),
+            child: Container(
+              height: ResponsiveFlutter.of(context).verticalScale(100.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(12.0)),
+              ),
+            ),
+          ),
+          itemCount: newsURLs.length,
+        ),
+      );
+    } else {
+      return ListView(
+        shrinkWrap: true,
+        children: news,
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    List<SizedBox> shimmers = newsURLs
-        .map((String newsURL) => SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(30.0),
-              child: Shimmer.fromColors(
-                baseColor: Colors.red,
-                highlightColor: Colors.yellow,
-                child: Text(
-                  'Shimmer',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 40.0,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ))
-        .toList();
-
     return Scaffold(
       appBar: AppBar(
         title: Text('News Updates'),
@@ -91,7 +104,25 @@ class _NewsScreenState extends State<NewsScreen> {
         padding:
             EdgeInsets.all(ResponsiveFlutter.of(context).moderateScale(10.0)),
         child: ListView(
-          children: loading && news.length == 0 ? shimmers : news,
+          children: <Widget>[
+            Padding(
+              padding: EdgeInsets.only(
+                bottom: ResponsiveFlutter.of(context).moderateScale(20.0),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: <Widget>[
+                  Image(
+                    image: AssetImage(
+                      'assets/icons/logo.png',
+                    ),
+                    height: ResponsiveFlutter.of(context).verticalScale(64.0),
+                  ),
+                ],
+              ),
+            ),
+            handleRender(context),
+          ],
         ),
       ),
     );
