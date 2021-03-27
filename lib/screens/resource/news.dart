@@ -63,34 +63,29 @@ class _NewsScreenState extends State<NewsScreen> {
     }
   }
 
-  Widget handleRender(BuildContext context) {
+  List<Widget> handleRender(BuildContext context) {
     if (loading && news.length == 0) {
-      return Shimmer.fromColors(
-        baseColor: Colors.grey[300],
-        highlightColor: Colors.grey[100],
-        enabled: loading,
-        child: ListView.builder(
-          shrinkWrap: true,
-          itemBuilder: (_, __) => Padding(
-            padding: EdgeInsets.only(
-              bottom: ResponsiveFlutter.of(context).moderateScale(16.0),
-            ),
-            child: Container(
-              height: ResponsiveFlutter.of(context).verticalScale(100.0),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.all(Radius.circular(12.0)),
-              ),
-            ),
-          ),
-          itemCount: newsURLs.length,
-        ),
-      );
+      return newsURLs
+          .map((String newsURL) => Shimmer.fromColors(
+                baseColor: Colors.grey[300],
+                highlightColor: Colors.grey[100],
+                enabled: loading,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    bottom: ResponsiveFlutter.of(context).moderateScale(16.0),
+                  ),
+                  child: Container(
+                    height: ResponsiveFlutter.of(context).verticalScale(100.0),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.all(Radius.circular(12.0)),
+                    ),
+                  ),
+                ),
+              ))
+          .toList();
     } else {
-      return ListView(
-        shrinkWrap: true,
-        children: news,
-      );
+      return news;
     }
   }
 
@@ -121,7 +116,7 @@ class _NewsScreenState extends State<NewsScreen> {
                 ],
               ),
             ),
-            handleRender(context),
+            ...handleRender(context),
           ],
         ),
       ),
