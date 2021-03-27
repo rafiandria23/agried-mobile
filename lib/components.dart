@@ -1,9 +1,12 @@
 // Home Components
-export 'components/home_components/home_card.dart';
-export 'components/home_components/student_profile_card.dart';
+export 'components/home/home_card.dart';
+export 'components/home/student_profile_card.dart';
 
 // Module Components
-export 'components/module_components/module_base.dart';
+export 'components/module/module_base.dart';
+
+// Resource Components
+export 'components/resource/resource_card.dart';
 
 // Private Sector Components
-export 'components/private_sector_components/job_card.dart';
+export 'components/private_sector/job_card.dart';

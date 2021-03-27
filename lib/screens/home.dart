@@ -109,10 +109,10 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3),
+            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
-        backgroundImage: AssetImage('assets/images/modules_card_bg.png'),
+        backgroundImage: AssetImage('assets/images/home/modules_card_bg.png'),
         onTap: () {
           Navigator.push(
               context,
@@ -131,14 +131,14 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3),
+            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
-        backgroundImage: AssetImage('assets/images/resources_card_bg.png'),
+        backgroundImage: AssetImage('assets/images/home/resources_card_bg.png'),
         onTap: () {
           Navigator.pushNamed(
             context,
-            ResourcesScreen.route,
+            ResourceScreen.route,
           );
         },
       ),
@@ -149,10 +149,10 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.blue,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3),
+            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
-        backgroundImage: AssetImage('assets/images/reporting_card_bg.png'),
+        backgroundImage: AssetImage('assets/images/home/reporting_card_bg.png'),
         onTap: () {
           Navigator.pushNamed(
             context,
@@ -167,10 +167,11 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3),
+            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
-        backgroundImage: AssetImage('assets/images/private_sector_card_bg.png'),
+        backgroundImage:
+            AssetImage('assets/images/home/private_sector_card_bg.png'),
         onTap: () {
           Navigator.pushNamed(
             context,

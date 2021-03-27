@@ -50,6 +50,8 @@ flutter:
     - assets/icons/
     - assets/images/
     - assets/dummies/
+    - assets/images/home/
+    - assets/images/resources/
     - assets/images/modules/a/
     - assets/images/modules/b/
     - assets/images/modules/c/
