@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:agried_mobile/components.dart';
+import 'package:agried_mobile/screens.dart';
 
 class ResourceScreen extends StatefulWidget {
   ResourceScreen({Key key}) : super(key: key);
@@ -17,7 +18,8 @@ class _ResourceScreenState extends State<ResourceScreen> {
     List<Widget> items = <Widget>[
       Padding(
         padding: EdgeInsets.only(
-            bottom: ResponsiveFlutter.of(context).moderateScale(20.0)),
+          bottom: ResponsiveFlutter.of(context).moderateScale(20.0),
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -43,7 +45,9 @@ class _ResourceScreenState extends State<ResourceScreen> {
         backgroundImage: AssetImage(
           'assets/images/resources/calculator_card_bg.png',
         ),
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, CalculatorScreen.route);
+        },
       ),
       ResourceCard(
         title: Text(
@@ -57,7 +61,12 @@ class _ResourceScreenState extends State<ResourceScreen> {
         backgroundImage: AssetImage(
           'assets/images/resources/productivity_card_bg.png',
         ),
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(
+            context,
+            ProductivityScreen.route,
+          );
+        },
       ),
       ResourceCard(
         title: Text(
@@ -71,7 +80,9 @@ class _ResourceScreenState extends State<ResourceScreen> {
         backgroundImage: AssetImage(
           'assets/images/resources/news_updates_card_bg.png',
         ),
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, NewsScreen.route);
+        },
       ),
       ResourceCard(
         title: Text(
@@ -85,7 +96,9 @@ class _ResourceScreenState extends State<ResourceScreen> {
         backgroundImage: AssetImage(
           'assets/images/resources/blogs_vlogs_card_bg.png',
         ),
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, BlogsVlogsScreen.route);
+        },
       ),
       ResourceCard(
         title: Text(
@@ -99,7 +112,9 @@ class _ResourceScreenState extends State<ResourceScreen> {
         backgroundImage: AssetImage(
           'assets/images/resources/knowledge_sharing_card_bg.png',
         ),
-        onTap: () {},
+        onTap: () {
+          Navigator.pushNamed(context, KnowledgeSharingScreen.route);
+        },
       ),
     ];
 
@@ -119,7 +134,7 @@ class _ResourceScreenState extends State<ResourceScreen> {
             separatorBuilder:
                 (BuildContext separatorBuilderContext, int index) {
               return SizedBox(
-                height: 10.0,
+                height: ResponsiveFlutter.of(context).verticalScale(8.0),
               );
             },
           ),

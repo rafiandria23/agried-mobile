@@ -45,8 +45,31 @@ class _AppState extends State<App> {
           // case ModulesScreen.route:
           //   return MaterialPageRoute(builder: (_) => ModulesScreen());
 
+          // Resource Routes
           case ResourceScreen.route:
-            return MaterialPageRoute(builder: (_) => ResourceScreen());
+            return MaterialPageRoute(
+              builder: (_) => ResourceScreen(),
+            );
+          case CalculatorScreen.route:
+            return MaterialPageRoute(
+              builder: (_) => CalculatorScreen(),
+            );
+          case ProductivityScreen.route:
+            return MaterialPageRoute(
+              builder: (_) => ProductivityScreen(),
+            );
+          case NewsScreen.route:
+            return MaterialPageRoute(
+              builder: (_) => NewsScreen(),
+            );
+          case BlogsVlogsScreen.route:
+            return MaterialPageRoute(
+              builder: (_) => BlogsVlogsScreen(),
+            );
+          case KnowledgeSharingScreen.route:
+            return MaterialPageRoute(
+              builder: (_) => KnowledgeSharingScreen(),
+            );
 
           case ReportingScreen.route:
             return MaterialPageRoute(builder: (_) => ReportingScreen());

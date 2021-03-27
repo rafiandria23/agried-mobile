@@ -8,6 +8,12 @@ export 'screens/module/module.dart';
 
 // Resource Screens
 export 'screens/resource/resource.dart';
+export 'screens/resource/calculator.dart';
+export 'screens/resource/productivity.dart';
+export 'screens/resource/news.dart';
+export 'screens/resource/online_news.dart';
+export 'screens/resource/blogs_vlogs.dart';
+export 'screens/resource/knowledge_sharing.dart';
 
 // Private Sector Screens
 export 'screens/private_sector/private_sector.dart';
