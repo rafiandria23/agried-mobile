@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:metadata_fetch/metadata_fetch.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:agried_mobile/components.dart';
+import 'package:agried/components.dart';
 
 class NewsScreen extends StatefulWidget {
   NewsScreen({Key key}) : super(key: key);

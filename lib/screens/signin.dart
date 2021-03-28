@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:agried_mobile/screens.dart';
+import 'package:agried/screens.dart';
 import 'package:flutter/services.dart';
 
 class SignInScreen extends StatefulWidget {

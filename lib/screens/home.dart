@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:agried_mobile/models.dart';
-import 'package:agried_mobile/components.dart';
-import 'package:agried_mobile/screens.dart';
+import 'package:agried/models.dart';
+import 'package:agried/components.dart';
+import 'package:agried/screens.dart';
 import 'package:flutter/services.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
 

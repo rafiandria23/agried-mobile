@@ -10,6 +10,7 @@ export 'screens/module/module.dart';
 export 'screens/resource/resource.dart';
 export 'screens/resource/calculator/calculator.dart';
 export 'screens/resource/calculator/calculator_fertilizer_grade_selector.dart';
+export 'screens/resource/calculator/calculation.dart';
 export 'screens/resource/productivity.dart';
 export 'screens/resource/news.dart';
 export 'screens/resource/online_news.dart';

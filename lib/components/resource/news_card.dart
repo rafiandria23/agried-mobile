@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
-import 'package:agried_mobile/screens.dart';
+import 'package:agried/screens.dart';
 
 class NewsCard extends StatelessWidget {
   final String title;
@@ -31,12 +31,14 @@ class NewsCard extends StatelessWidget {
         );
       },
       child: Card(
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(12.0),
+        ),
         elevation: 2.0,
         child: Container(
-          padding:
-              EdgeInsets.all(ResponsiveFlutter.of(context).moderateScale(16.0)),
+          padding: EdgeInsets.all(
+            ResponsiveFlutter.of(context).moderateScale(16.0),
+          ),
           height: ResponsiveFlutter.of(context).verticalScale(100.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

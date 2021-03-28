@@ -1,7 +1,7 @@
-import 'package:agried_mobile/screens.dart';
+import 'package:agried/screens.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
-import 'package:agried_mobile/models.dart';
+import 'package:agried/models.dart';
 
 class CalculatorScreen extends StatefulWidget {
   CalculatorScreen({Key key}) : super(key: key);
@@ -21,7 +21,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     CalculatorUnit(name: 'in lb', unit: 'lb'),
   ];
   CalculatorUnit _selectedUnit;
-  CalculatorNutrients _nutrients;
 
   final TextEditingController nController = TextEditingController();
   final TextEditingController phosphateController = TextEditingController();
@@ -80,6 +79,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         }
         break;
     }
+
+    return 0.0;
   }
 
   void _onChangeUnit(CalculatorUnit unit) {
@@ -154,79 +155,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               _selectedUnit.unit,
               unit.unit,
             ).toString();
-
-      _nutrients = CalculatorNutrients(
-        n: nController.text.isEmpty
-            ? null
-            : _convertUnit(
-                double.parse(nController.text),
-                _selectedUnit.unit,
-                unit.unit,
-              ),
-        phosphate: phosphateController.text.isEmpty
-            ? null
-            : _convertUnit(
-                double.parse(phosphateController.text),
-                _selectedUnit.unit,
-                unit.unit,
-              ),
-        potash: potashController.text.isEmpty
-            ? null
-            : _convertUnit(
-                double.parse(potashController.text),
-                _selectedUnit.unit,
-                unit.unit,
-              ),
-        zn: znController.text.isEmpty
-            ? null
-            : _convertUnit(
-                double.parse(znController.text),
-                _selectedUnit.unit,
-                unit.unit,
-              ),
-        b: bController.text.isEmpty
-            ? null
-            : _convertUnit(
-                double.parse(bController.text),
-                _selectedUnit.unit,
-                unit.unit,
-              ),
-        fe: feController.text.isEmpty
-            ? null
-            : _convertUnit(
-                double.parse(feController.text),
-                _selectedUnit.unit,
-                unit.unit,
-              ),
-        mn: mnController.text.isEmpty
-            ? null
-            : _convertUnit(
-                double.parse(mnController.text),
-                _selectedUnit.unit,
-                unit.unit,
-              ),
-        cu: cuController.text.isEmpty
-            ? null
-            : _convertUnit(
-                double.parse(cuController.text),
-                _selectedUnit.unit,
-                unit.unit,
-              ),
-        mo: moController.text.isEmpty
-            ? null
-            : _convertUnit(
-                double.parse(moController.text),
-                _selectedUnit.unit,
-                unit.unit,
-              ),
-        ci: ciController.text.isEmpty
-            ? null
-            : _convertUnit(
-                double.parse(ciController.text),
-                _selectedUnit.unit,
-                unit.unit,
-              ),
-      );
 
       _selectedUnit = unit;
     });

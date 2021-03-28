@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
-import 'package:agried_mobile/models.dart';
-import 'package:agried_mobile/constants.dart';
+import 'package:agried/models.dart';
+import 'package:agried/constants.dart';
+import 'package:agried/screens.dart';
 
 class CalculatorFertilizerGradeSelector extends StatefulWidget {
   CalculatorFertilizerGradeSelector({Key key}) : super(key: key);
@@ -16,6 +17,7 @@ class CalculatorFertilizerGradeSelector extends StatefulWidget {
 class _CalculatorFertilizerGradeSelectorState
     extends State<CalculatorFertilizerGradeSelector> {
   CalculatorNutrients _nutrients;
+  CalculatorUnit _unit;
 
   // Selected Major Nutrients
   CalculatorFertilizerGrade _selectedNpkFertilizer;
@@ -389,13 +391,128 @@ class _CalculatorFertilizerGradeSelectorState
   }
 
   void _handleSubmit(BuildContext context) {
-    // Navigator.pushNamed
+    List<Calculation> calculations = List<Calculation>();
+
+    _nutrients.toMap().forEach((String nutrientKey, double nutrientVal) {
+      if (nutrientVal != null && nutrientVal > 0) {
+        switch (nutrientKey) {
+          case 'n':
+            calculations.add(
+              Calculation(
+                fertilizer: _selectedNitrogenousFertilizer,
+                unit: _unit,
+                result: nutrientVal,
+              ),
+            );
+            break;
+
+          case 'phosphate':
+            calculations.add(
+              Calculation(
+                fertilizer: _selectedNpkFertilizer,
+                unit: _unit,
+                result: nutrientVal,
+              ),
+            );
+            break;
+
+          case 'potash':
+            calculations.add(
+              Calculation(
+                fertilizer: _selectedPotassicFertilizer,
+                unit: _unit,
+                result: nutrientVal,
+              ),
+            );
+            break;
+
+          case 'zn':
+            calculations.add(
+              Calculation(
+                fertilizer: _selectedZincFertilizer,
+                unit: _unit,
+                result: nutrientVal,
+              ),
+            );
+            break;
+
+          case 'b':
+            calculations.add(
+              Calculation(
+                fertilizer: _selectedBoronFertilizer,
+                unit: _unit,
+                result: nutrientVal,
+              ),
+            );
+            break;
+
+          case 'fe':
+            calculations.add(
+              Calculation(
+                fertilizer: _selectedIronFertilizer,
+                unit: _unit,
+                result: nutrientVal,
+              ),
+            );
+            break;
+
+          case 'mn':
+            calculations.add(
+              Calculation(
+                fertilizer: _selectedManganeseFertilizer,
+                unit: _unit,
+                result: nutrientVal,
+              ),
+            );
+            break;
+
+          case 'cu':
+            calculations.add(
+              Calculation(
+                fertilizer: _selectedCopperFertilizer,
+                unit: _unit,
+                result: nutrientVal,
+              ),
+            );
+            break;
+
+          case 'mo':
+            calculations.add(
+              Calculation(
+                fertilizer: _selectedMolybdenumFertilizer,
+                unit: _unit,
+                result: nutrientVal,
+              ),
+            );
+            break;
+
+          case 'ci':
+            calculations.add(
+              Calculation(
+                fertilizer: _selectedChlorideFertilizer,
+                unit: _unit,
+                result: nutrientVal,
+              ),
+            );
+            break;
+        }
+      }
+    });
+
+    Navigator.pushNamed(
+      context,
+      CalculationScreen.route,
+      arguments: {
+        'calculations': calculations,
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
     _nutrients = arguments['nutrients'];
+    _unit = arguments['unit'];
 
     bool renderMajorCard = (_nutrients.n != null && _nutrients.n > 0) ||
         (_nutrients.phosphate != null && _nutrients.phosphate > 0) ||

@@ -8,6 +8,7 @@ export 'components/module/module_base.dart';
 // Resource Components
 export 'components/resource/resource_card.dart';
 export 'components/resource/news_card.dart';
+export 'components/resource/calculator/calculation_card.dart';
 
 // Private Sector Components
 export 'components/private_sector/job_card.dart';

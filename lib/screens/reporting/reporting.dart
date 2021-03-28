@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:agried_mobile/screens.dart';
+import 'package:agried/screens.dart';
 
 class ReportingScreen extends StatefulWidget {
   ReportingScreen({Key key}) : super(key: key);

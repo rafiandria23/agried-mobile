@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:agried_mobile/screens.dart';
+import 'package:agried/screens.dart';
 
 class App extends StatefulWidget {
   // This widget is the root of your application.
@@ -48,6 +48,11 @@ class _AppState extends State<App> {
         return _buildRoute(
           settings,
           CalculatorFertilizerGradeSelector(),
+        );
+      case CalculationScreen.route:
+        return _buildRoute(
+          settings,
+          CalculationScreen(),
         );
       case ProductivityScreen.route:
         return _buildRoute(

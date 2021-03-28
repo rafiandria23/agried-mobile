@@ -1,4 +1,4 @@
-package com.agried.agried_mobile
+package com.agried.agried
 
 import io.flutter.embedding.android.FlutterActivity
 

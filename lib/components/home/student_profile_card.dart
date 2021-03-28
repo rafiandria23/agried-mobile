@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:agried_mobile/models.dart';
+import 'package:agried/models.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
 
 class StudentProfileCard extends StatelessWidget {

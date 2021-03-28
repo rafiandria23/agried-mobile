@@ -7,3 +7,4 @@ export 'models/job.dart';
 export 'models/calculator/calculator_unit.dart';
 export 'models/calculator/calculator_fertilizer_grade.dart';
 export 'models/calculator/calculator_nutrients.dart';
+export 'models/calculator/calculation.dart';

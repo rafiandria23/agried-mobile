@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
-import 'package:agried_mobile/components.dart';
-import 'package:agried_mobile/screens.dart';
+import 'package:agried/components.dart';
+import 'package:agried/screens.dart';
 
 class ResourceScreen extends StatefulWidget {
   ResourceScreen({Key key}) : super(key: key);
