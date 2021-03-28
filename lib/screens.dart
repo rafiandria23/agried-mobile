@@ -8,7 +8,8 @@ export 'screens/module/module.dart';
 
 // Resource Screens
 export 'screens/resource/resource.dart';
-export 'screens/resource/calculator.dart';
+export 'screens/resource/calculator/calculator.dart';
+export 'screens/resource/calculator/calculator_fertilizer_grade_selector.dart';
 export 'screens/resource/productivity.dart';
 export 'screens/resource/news.dart';
 export 'screens/resource/online_news.dart';

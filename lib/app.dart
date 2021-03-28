@@ -12,6 +12,84 @@ class _AppState extends State<App> {
     super.initState();
   }
 
+  MaterialPageRoute _buildRoute(RouteSettings settings, Widget builder) {
+    return MaterialPageRoute(settings: settings, builder: (context) => builder);
+  }
+
+  Route<dynamic> _getRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case SignInScreen.route:
+        return _buildRoute(
+          settings,
+          SignInScreen(),
+        );
+
+      case LandingScreen.route:
+        return _buildRoute(
+          settings,
+          LandingScreen(),
+        );
+
+      // case ModulesScreen.route:
+      //   return MaterialPageRoute(builder: (_) => ModulesScreen());
+
+      // Resource Routes
+      case ResourceScreen.route:
+        return _buildRoute(
+          settings,
+          ResourceScreen(),
+        );
+      case CalculatorScreen.route:
+        return _buildRoute(
+          settings,
+          CalculatorScreen(),
+        );
+      case CalculatorFertilizerGradeSelector.route:
+        return _buildRoute(
+          settings,
+          CalculatorFertilizerGradeSelector(),
+        );
+      case ProductivityScreen.route:
+        return _buildRoute(
+          settings,
+          ProductivityScreen(),
+        );
+      case NewsScreen.route:
+        return _buildRoute(
+          settings,
+          NewsScreen(),
+        );
+      case BlogsVlogsScreen.route:
+        return _buildRoute(
+          settings,
+          BlogsVlogsScreen(),
+        );
+      case KnowledgeSharingScreen.route:
+        return _buildRoute(
+          settings,
+          KnowledgeSharingScreen(),
+        );
+
+      case ReportingScreen.route:
+        return _buildRoute(
+          settings,
+          ReportingScreen(),
+        );
+
+      case PrivateSectorScreen.route:
+        return _buildRoute(
+          settings,
+          PrivateSectorScreen(),
+        );
+
+      default:
+        return _buildRoute(
+          settings,
+          SignInScreen(),
+        );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -34,53 +112,7 @@ class _AppState extends State<App> {
       ),
       initialRoute: LandingScreen.route,
       home: LandingScreen(),
-      onGenerateRoute: (settings) {
-        switch (settings.name) {
-          case SignInScreen.route:
-            return MaterialPageRoute(builder: (_) => SignInScreen());
-
-          case LandingScreen.route:
-            return MaterialPageRoute(builder: (_) => LandingScreen());
-
-          // case ModulesScreen.route:
-          //   return MaterialPageRoute(builder: (_) => ModulesScreen());
-
-          // Resource Routes
-          case ResourceScreen.route:
-            return MaterialPageRoute(
-              builder: (_) => ResourceScreen(),
-            );
-          case CalculatorScreen.route:
-            return MaterialPageRoute(
-              builder: (_) => CalculatorScreen(),
-            );
-          case ProductivityScreen.route:
-            return MaterialPageRoute(
-              builder: (_) => ProductivityScreen(),
-            );
-          case NewsScreen.route:
-            return MaterialPageRoute(
-              builder: (_) => NewsScreen(),
-            );
-          case BlogsVlogsScreen.route:
-            return MaterialPageRoute(
-              builder: (_) => BlogsVlogsScreen(),
-            );
-          case KnowledgeSharingScreen.route:
-            return MaterialPageRoute(
-              builder: (_) => KnowledgeSharingScreen(),
-            );
-
-          case ReportingScreen.route:
-            return MaterialPageRoute(builder: (_) => ReportingScreen());
-
-          case PrivateSectorScreen.route:
-            return MaterialPageRoute(builder: (_) => PrivateSectorScreen());
-
-          default:
-            return MaterialPageRoute(builder: (_) => SignInScreen());
-        }
-      },
+      onGenerateRoute: _getRoute,
     );
   }
 }
