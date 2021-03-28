@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:responsive_flutter/responsive_flutter.dart';
 
 class HomeCard extends StatelessWidget {
+  final AssetImage backgroundImage;
+  final Widget title;
+  final VoidCallback onTap;
+
   HomeCard(
       {Key key,
       @required this.backgroundImage,
       @required this.title,
       @required this.onTap})
       : super(key: key);
-
-  final AssetImage backgroundImage;
-  final Widget title;
-  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
