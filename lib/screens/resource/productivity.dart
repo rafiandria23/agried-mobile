@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class ProductivityScreen extends StatefulWidget {
