@@ -39,7 +39,6 @@ class NewsCard extends StatelessWidget {
           padding: EdgeInsets.all(
             ResponsiveFlutter.of(context).moderateScale(16.0),
           ),
-          height: ResponsiveFlutter.of(context).verticalScale(100.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -66,7 +65,7 @@ class NewsCard extends StatelessWidget {
                     ),
                     Text(
                       description,
-                      textAlign: TextAlign.justify,
+                      textAlign: TextAlign.start,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                       softWrap: false,

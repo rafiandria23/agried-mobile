@@ -19,6 +19,8 @@ class OnlineReportingScreen extends StatefulWidget {
 class _OnlineReportingScreenState extends State<OnlineReportingScreen> {
   final String reportURL;
 
+  bool _loading = true;
+
   _OnlineReportingScreenState({
     @required this.reportURL,
   });
@@ -39,10 +41,19 @@ class _OnlineReportingScreenState extends State<OnlineReportingScreen> {
         title: Text(
           'Online Reporting',
         ),
+        bottom: PreferredSize(
+          preferredSize: Size.zero,
+          child: _loading ? LinearProgressIndicator() : SizedBox(),
+        ),
       ),
       body: WebView(
         initialUrl: reportURL,
         javascriptMode: JavascriptMode.unrestricted,
+        onPageFinished: (String finished) {
+          setState(() {
+            _loading = false;
+          });
+        },
       ),
     );
   }

@@ -24,6 +24,8 @@ class _OnlineNewsScreenState extends State<OnlineNewsScreen> {
   final String title;
   final String url;
 
+  bool _loading = true;
+
   _OnlineNewsScreenState({
     @required this.title,
     @required this.url,
@@ -51,10 +53,19 @@ class _OnlineNewsScreenState extends State<OnlineNewsScreen> {
             fontSize: ResponsiveFlutter.of(context).fontSize(2.0),
           ),
         ),
+        bottom: PreferredSize(
+          preferredSize: Size.zero,
+          child: _loading ? LinearProgressIndicator() : SizedBox(),
+        ),
       ),
       body: WebView(
         initialUrl: url,
         javascriptMode: JavascriptMode.unrestricted,
+        onPageFinished: (String finished) {
+          setState(() {
+            _loading = false;
+          });
+        },
       ),
     );
   }
