@@ -13,7 +13,7 @@ class LandingScreen extends StatefulWidget {
 class _LandingScreenState extends State<LandingScreen> {
   int _selectedIdx = 0;
 
-  List<Widget> _screenOptions = List<Widget>();
+  List<Widget> _screenOptions = [];
 
   @override
   void initState() {

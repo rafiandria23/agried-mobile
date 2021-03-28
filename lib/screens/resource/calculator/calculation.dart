@@ -15,6 +15,12 @@ class CalculationScreen extends StatefulWidget {
 class _CalculationScreenState extends State<CalculationScreen> {
   List<Calculation> _calculations;
 
+  void _handleBack(BuildContext context) {
+    Navigator.of(context).popUntil(
+      (Route<dynamic> route) => route.settings.name == '/resources/calculator',
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final Map arguments = ModalRoute.of(context).settings.arguments as Map;
@@ -23,6 +29,16 @@ class _CalculationScreenState extends State<CalculationScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Calculations'),
+        leading: IconButton(
+          icon: Icon(
+            Theme.of(context).platform == TargetPlatform.iOS
+                ? Icons.arrow_back_ios
+                : Icons.arrow_back,
+          ),
+          onPressed: () {
+            _handleBack(context);
+          },
+        ),
       ),
       body: ListView(
         padding: EdgeInsets.all(

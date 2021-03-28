@@ -69,33 +69,65 @@ class _CalculatorFertilizerGradeSelectorState
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             // Title
-            Text('Fertilizers of major nutrients'),
+            Text(
+              'Fertilizers of major nutrients',
+              style: TextStyle(
+                color: Colors.grey[500],
+              ),
+            ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(14.0),
+            ),
 
             // NPK fertilizer (Phosphate)
             if (_nutrients.phosphate != null && _nutrients.phosphate > 0)
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('NPK fertilizer'),
-                  DropdownButton(
-                    underline: SizedBox(),
-                    iconEnabledColor: Colors.blue,
-                    value: _selectedNpkFertilizer,
-                    items: CalculatorConstants.npkFertilizers
-                        .map(
-                          (CalculatorFertilizerGrade npkFertilizer) =>
-                              DropdownMenuItem(
-                            value: npkFertilizer,
-                            child: Text(
-                              npkFertilizer.label,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (CalculatorFertilizerGrade npkFertilizer) {
-                      setState(() {
-                        _selectedNpkFertilizer = npkFertilizer;
-                      });
-                    },
+                  Text(
+                    'NPK fertilizer',
+                    style: TextStyle(
+                      fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: ResponsiveFlutter.of(context).moderateScale(16.0),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                          isExpanded: true,
+                          iconEnabledColor: Colors.blue,
+                          value: _selectedNpkFertilizer,
+                          items: CalculatorConstants.npkFertilizers
+                              .map(
+                                (CalculatorFertilizerGrade npkFertilizer) =>
+                                    DropdownMenuItem(
+                                  value: npkFertilizer,
+                                  child: Text(
+                                    npkFertilizer.label,
+                                    style: TextStyle(
+                                      fontSize: ResponsiveFlutter.of(context)
+                                          .fontSize(1.8),
+                                    ),
+                                  ),
+                                ),
+                              )
+                              .toList(),
+                          onChanged: (CalculatorFertilizerGrade npkFertilizer) {
+                            setState(() {
+                              _selectedNpkFertilizer = npkFertilizer;
+                            });
+                          }),
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(14.0),
                   ),
                 ],
               ),
@@ -103,29 +135,56 @@ class _CalculatorFertilizerGradeSelectorState
             // Nitrogeneous fertilizer
             if (_nutrients.n != null && _nutrients.n > 0)
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Nitrogeneous fertilizer'),
-                  DropdownButton(
-                    underline: SizedBox(),
-                    iconEnabledColor: Colors.blue,
-                    value: _selectedNitrogenousFertilizer,
-                    items: CalculatorConstants.nitrogenousFertilizers
-                        .map(
-                          (CalculatorFertilizerGrade nitrogenousFertilizer) =>
-                              DropdownMenuItem(
-                            value: nitrogenousFertilizer,
-                            child: Text(
-                              nitrogenousFertilizer.label,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    onChanged:
-                        (CalculatorFertilizerGrade nitrogenousFertilizer) {
-                      setState(() {
-                        _selectedNitrogenousFertilizer = nitrogenousFertilizer;
-                      });
-                    },
+                  Text(
+                    'Nitrogeneous fertilizer',
+                    style: TextStyle(
+                      fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: ResponsiveFlutter.of(context).moderateScale(16.0),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        isExpanded: true,
+                        iconEnabledColor: Colors.blue,
+                        value: _selectedNitrogenousFertilizer,
+                        items: CalculatorConstants.nitrogenousFertilizers
+                            .map(
+                              (CalculatorFertilizerGrade
+                                      nitrogenousFertilizer) =>
+                                  DropdownMenuItem(
+                                value: nitrogenousFertilizer,
+                                child: Text(
+                                  nitrogenousFertilizer.label,
+                                  style: TextStyle(
+                                    fontSize: ResponsiveFlutter.of(context)
+                                        .fontSize(1.8),
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged:
+                            (CalculatorFertilizerGrade nitrogenousFertilizer) {
+                          setState(() {
+                            _selectedNitrogenousFertilizer =
+                                nitrogenousFertilizer;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(14.0),
                   ),
                 ],
               ),
@@ -133,28 +192,54 @@ class _CalculatorFertilizerGradeSelectorState
             // Potassic fertilizer
             if (_nutrients.potash != null && _nutrients.potash > 0)
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Potassic fertilizer'),
-                  DropdownButton(
-                    underline: SizedBox(),
-                    iconEnabledColor: Colors.blue,
-                    value: _selectedPotassicFertilizer,
-                    items: CalculatorConstants.potassicFertilizers
-                        .map(
-                          (CalculatorFertilizerGrade potassicFertilizer) =>
-                              DropdownMenuItem(
-                            value: potassicFertilizer,
-                            child: Text(
-                              potassicFertilizer.label,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (CalculatorFertilizerGrade potassicFertilizer) {
-                      setState(() {
-                        _selectedPotassicFertilizer = potassicFertilizer;
-                      });
-                    },
+                  Text(
+                    'Potassic fertilizer',
+                    style: TextStyle(
+                      fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: ResponsiveFlutter.of(context).moderateScale(16.0),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        isExpanded: true,
+                        iconEnabledColor: Colors.blue,
+                        value: _selectedPotassicFertilizer,
+                        items: CalculatorConstants.potassicFertilizers
+                            .map(
+                              (CalculatorFertilizerGrade potassicFertilizer) =>
+                                  DropdownMenuItem(
+                                value: potassicFertilizer,
+                                child: Text(
+                                  potassicFertilizer.label,
+                                  style: TextStyle(
+                                    fontSize: ResponsiveFlutter.of(context)
+                                        .fontSize(1.8),
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged:
+                            (CalculatorFertilizerGrade potassicFertilizer) {
+                          setState(() {
+                            _selectedPotassicFertilizer = potassicFertilizer;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(14.0),
                   ),
                 ],
               ),
@@ -168,7 +253,7 @@ class _CalculatorFertilizerGradeSelectorState
     return Card(
       elevation: 2.0,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12.0),
+        borderRadius: BorderRadius.circular(16.0),
       ),
       child: Padding(
         padding: EdgeInsets.all(
@@ -179,33 +264,66 @@ class _CalculatorFertilizerGradeSelectorState
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             // Title
-            Text('Fertilizers of micro nutrients'),
+            Text(
+              'Fertilizers of micro nutrients',
+              style: TextStyle(
+                color: Colors.grey[500],
+              ),
+            ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(14.0),
+            ),
 
             // Zinc fertilizer
             if (_nutrients.zn != null && _nutrients.zn > 0)
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Zinc fertilizer'),
-                  DropdownButton(
-                    underline: SizedBox(),
-                    iconEnabledColor: Colors.blue,
-                    value: _selectedZincFertilizer,
-                    items: CalculatorConstants.zincFertilizers
-                        .map(
-                          (CalculatorFertilizerGrade zincFertilizer) =>
-                              DropdownMenuItem(
-                            value: zincFertilizer,
-                            child: Text(
-                              zincFertilizer.label,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (CalculatorFertilizerGrade zincFertilizer) {
-                      setState(() {
-                        _selectedZincFertilizer = zincFertilizer;
-                      });
-                    },
+                  Text(
+                    'Zinc fertilizer',
+                    style: TextStyle(
+                      fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: ResponsiveFlutter.of(context).moderateScale(16.0),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        isExpanded: true,
+                        iconEnabledColor: Colors.blue,
+                        value: _selectedZincFertilizer,
+                        items: CalculatorConstants.zincFertilizers
+                            .map(
+                              (CalculatorFertilizerGrade zincFertilizer) =>
+                                  DropdownMenuItem(
+                                value: zincFertilizer,
+                                child: Text(
+                                  zincFertilizer.label,
+                                  style: TextStyle(
+                                    fontSize: ResponsiveFlutter.of(context)
+                                        .fontSize(1.8),
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (CalculatorFertilizerGrade zincFertilizer) {
+                          setState(() {
+                            _selectedZincFertilizer = zincFertilizer;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(14.0),
                   ),
                 ],
               ),
@@ -213,28 +331,53 @@ class _CalculatorFertilizerGradeSelectorState
             // Boron fertilizer
             if (_nutrients.b != null && _nutrients.b > 0)
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Boron fertilizer'),
-                  DropdownButton(
-                    underline: SizedBox(),
-                    iconEnabledColor: Colors.blue,
-                    value: _selectedBoronFertilizer,
-                    items: CalculatorConstants.boronFertilizers
-                        .map(
-                          (CalculatorFertilizerGrade boronFertilizer) =>
-                              DropdownMenuItem(
-                            value: boronFertilizer,
-                            child: Text(
-                              boronFertilizer.label,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (CalculatorFertilizerGrade boronFertilizer) {
-                      setState(() {
-                        _selectedBoronFertilizer = boronFertilizer;
-                      });
-                    },
+                  Text(
+                    'Boron fertilizer',
+                    style: TextStyle(
+                      fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: ResponsiveFlutter.of(context).moderateScale(16.0),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        isExpanded: true,
+                        iconEnabledColor: Colors.blue,
+                        value: _selectedBoronFertilizer,
+                        items: CalculatorConstants.boronFertilizers
+                            .map(
+                              (CalculatorFertilizerGrade boronFertilizer) =>
+                                  DropdownMenuItem(
+                                value: boronFertilizer,
+                                child: Text(
+                                  boronFertilizer.label,
+                                  style: TextStyle(
+                                    fontSize: ResponsiveFlutter.of(context)
+                                        .fontSize(1.8),
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (CalculatorFertilizerGrade boronFertilizer) {
+                          setState(() {
+                            _selectedBoronFertilizer = boronFertilizer;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(14.0),
                   ),
                 ],
               ),
@@ -242,28 +385,53 @@ class _CalculatorFertilizerGradeSelectorState
             // Iron fertilizer
             if (_nutrients.fe != null && _nutrients.fe > 0)
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Iron fertilizer'),
-                  DropdownButton(
-                    underline: SizedBox(),
-                    iconEnabledColor: Colors.blue,
-                    value: _selectedIronFertilizer,
-                    items: CalculatorConstants.ironFertilizers
-                        .map(
-                          (CalculatorFertilizerGrade ironFertilizer) =>
-                              DropdownMenuItem(
-                            value: ironFertilizer,
-                            child: Text(
-                              ironFertilizer.label,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (CalculatorFertilizerGrade ironFertilizer) {
-                      setState(() {
-                        _selectedIronFertilizer = ironFertilizer;
-                      });
-                    },
+                  Text(
+                    'Iron fertilizer',
+                    style: TextStyle(
+                      fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: ResponsiveFlutter.of(context).moderateScale(16.0),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        isExpanded: true,
+                        iconEnabledColor: Colors.blue,
+                        value: _selectedIronFertilizer,
+                        items: CalculatorConstants.ironFertilizers
+                            .map(
+                              (CalculatorFertilizerGrade ironFertilizer) =>
+                                  DropdownMenuItem(
+                                value: ironFertilizer,
+                                child: Text(
+                                  ironFertilizer.label,
+                                  style: TextStyle(
+                                    fontSize: ResponsiveFlutter.of(context)
+                                        .fontSize(1.8),
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged: (CalculatorFertilizerGrade ironFertilizer) {
+                          setState(() {
+                            _selectedIronFertilizer = ironFertilizer;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(14.0),
                   ),
                 ],
               ),
@@ -271,28 +439,54 @@ class _CalculatorFertilizerGradeSelectorState
             // Manganese fertilizer
             if (_nutrients.mn != null && _nutrients.mn > 0)
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Manganese fertilizer'),
-                  DropdownButton(
-                    underline: SizedBox(),
-                    iconEnabledColor: Colors.blue,
-                    value: _selectedManganeseFertilizer,
-                    items: CalculatorConstants.manganeseFertilizers
-                        .map(
-                          (CalculatorFertilizerGrade manganeseFertilizer) =>
-                              DropdownMenuItem(
-                            value: manganeseFertilizer,
-                            child: Text(
-                              manganeseFertilizer.label,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (CalculatorFertilizerGrade manganeseFertilizer) {
-                      setState(() {
-                        _selectedManganeseFertilizer = manganeseFertilizer;
-                      });
-                    },
+                  Text(
+                    'Manganese fertilizer',
+                    style: TextStyle(
+                      fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: ResponsiveFlutter.of(context).moderateScale(16.0),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        isExpanded: true,
+                        iconEnabledColor: Colors.blue,
+                        value: _selectedManganeseFertilizer,
+                        items: CalculatorConstants.manganeseFertilizers
+                            .map(
+                              (CalculatorFertilizerGrade manganeseFertilizer) =>
+                                  DropdownMenuItem(
+                                value: manganeseFertilizer,
+                                child: Text(
+                                  manganeseFertilizer.label,
+                                  style: TextStyle(
+                                    fontSize: ResponsiveFlutter.of(context)
+                                        .fontSize(1.8),
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged:
+                            (CalculatorFertilizerGrade manganeseFertilizer) {
+                          setState(() {
+                            _selectedManganeseFertilizer = manganeseFertilizer;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(14.0),
                   ),
                 ],
               ),
@@ -300,28 +494,54 @@ class _CalculatorFertilizerGradeSelectorState
             // Copper fertilizer
             if (_nutrients.cu != null && _nutrients.cu > 0)
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Copper fertilizer'),
-                  DropdownButton(
-                    underline: SizedBox(),
-                    iconEnabledColor: Colors.blue,
-                    value: _selectedCopperFertilizer,
-                    items: CalculatorConstants.copperFertilizers
-                        .map(
-                          (CalculatorFertilizerGrade copperFertilizer) =>
-                              DropdownMenuItem(
-                            value: copperFertilizer,
-                            child: Text(
-                              copperFertilizer.label,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (CalculatorFertilizerGrade copperFertilizer) {
-                      setState(() {
-                        _selectedCopperFertilizer = copperFertilizer;
-                      });
-                    },
+                  Text(
+                    'Copper fertilizer',
+                    style: TextStyle(
+                      fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: ResponsiveFlutter.of(context).moderateScale(16.0),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        isExpanded: true,
+                        iconEnabledColor: Colors.blue,
+                        value: _selectedCopperFertilizer,
+                        items: CalculatorConstants.copperFertilizers
+                            .map(
+                              (CalculatorFertilizerGrade copperFertilizer) =>
+                                  DropdownMenuItem(
+                                value: copperFertilizer,
+                                child: Text(
+                                  copperFertilizer.label,
+                                  style: TextStyle(
+                                    fontSize: ResponsiveFlutter.of(context)
+                                        .fontSize(1.8),
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged:
+                            (CalculatorFertilizerGrade copperFertilizer) {
+                          setState(() {
+                            _selectedCopperFertilizer = copperFertilizer;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(14.0),
                   ),
                 ],
               ),
@@ -329,29 +549,56 @@ class _CalculatorFertilizerGradeSelectorState
             // Molybdenum fertilizer
             if (_nutrients.mo != null && _nutrients.mo > 0)
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Molybdenum fertilizer'),
-                  DropdownButton(
-                    underline: SizedBox(),
-                    iconEnabledColor: Colors.blue,
-                    value: _selectedMolybdenumFertilizer,
-                    items: CalculatorConstants.molybdenumFertilizers
-                        .map(
-                          (CalculatorFertilizerGrade molybdenumFertilizer) =>
-                              DropdownMenuItem(
-                            value: molybdenumFertilizer,
-                            child: Text(
-                              molybdenumFertilizer.label,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    onChanged:
-                        (CalculatorFertilizerGrade molybdenumFertilizer) {
-                      setState(() {
-                        _selectedMolybdenumFertilizer = molybdenumFertilizer;
-                      });
-                    },
+                  Text(
+                    'Molybdenum fertilizer',
+                    style: TextStyle(
+                      fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: ResponsiveFlutter.of(context).moderateScale(16.0),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        isExpanded: true,
+                        iconEnabledColor: Colors.blue,
+                        value: _selectedMolybdenumFertilizer,
+                        items: CalculatorConstants.molybdenumFertilizers
+                            .map(
+                              (CalculatorFertilizerGrade
+                                      molybdenumFertilizer) =>
+                                  DropdownMenuItem(
+                                value: molybdenumFertilizer,
+                                child: Text(
+                                  molybdenumFertilizer.label,
+                                  style: TextStyle(
+                                    fontSize: ResponsiveFlutter.of(context)
+                                        .fontSize(1.8),
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged:
+                            (CalculatorFertilizerGrade molybdenumFertilizer) {
+                          setState(() {
+                            _selectedMolybdenumFertilizer =
+                                molybdenumFertilizer;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(14.0),
                   ),
                 ],
               ),
@@ -359,28 +606,54 @@ class _CalculatorFertilizerGradeSelectorState
             // Chloride fertilizer
             if (_nutrients.ci != null && _nutrients.ci > 0)
               Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Text('Chloride fertilizer'),
-                  DropdownButton(
-                    underline: SizedBox(),
-                    iconEnabledColor: Colors.blue,
-                    value: _selectedChlorideFertilizer,
-                    items: CalculatorConstants.chlorideFertilizers
-                        .map(
-                          (CalculatorFertilizerGrade chlorideFertilizer) =>
-                              DropdownMenuItem(
-                            value: chlorideFertilizer,
-                            child: Text(
-                              chlorideFertilizer.label,
-                            ),
-                          ),
-                        )
-                        .toList(),
-                    onChanged: (CalculatorFertilizerGrade chlorideFertilizer) {
-                      setState(() {
-                        _selectedChlorideFertilizer = chlorideFertilizer;
-                      });
-                    },
+                  Text(
+                    'Chloride fertilizer',
+                    style: TextStyle(
+                      fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(
+                      left: ResponsiveFlutter.of(context).moderateScale(16.0),
+                    ),
+                    child: DropdownButtonHideUnderline(
+                      child: DropdownButton(
+                        isExpanded: true,
+                        iconEnabledColor: Colors.blue,
+                        value: _selectedChlorideFertilizer,
+                        items: CalculatorConstants.chlorideFertilizers
+                            .map(
+                              (CalculatorFertilizerGrade chlorideFertilizer) =>
+                                  DropdownMenuItem(
+                                value: chlorideFertilizer,
+                                child: Text(
+                                  chlorideFertilizer.label,
+                                  style: TextStyle(
+                                    fontSize: ResponsiveFlutter.of(context)
+                                        .fontSize(1.8),
+                                  ),
+                                ),
+                              ),
+                            )
+                            .toList(),
+                        onChanged:
+                            (CalculatorFertilizerGrade chlorideFertilizer) {
+                          setState(() {
+                            _selectedChlorideFertilizer = chlorideFertilizer;
+                          });
+                        },
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(14.0),
                   ),
                 ],
               ),
@@ -391,7 +664,7 @@ class _CalculatorFertilizerGradeSelectorState
   }
 
   void _handleSubmit(BuildContext context) {
-    List<Calculation> calculations = List<Calculation>();
+    List<Calculation> calculations = [];
 
     _nutrients.toMap().forEach((String nutrientKey, double nutrientVal) {
       if (nutrientVal != null && nutrientVal > 0) {

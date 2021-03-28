@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:agried/screens.dart';
+import 'package:flutter/services.dart';
 
 class ReportingScreen extends StatefulWidget {
   ReportingScreen({Key key}) : super(key: key);
@@ -166,7 +167,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
 
     TextFormField reportDetailsTextFormField = TextFormField(
       maxLength: 3000,
-      maxLengthEnforced: true,
+      maxLengthEnforcement: MaxLengthEnforcement.enforced,
       maxLines: null,
       minLines: 10,
       controller: reportDetailsController,
@@ -249,7 +250,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
               SizedBox(
                 height: 25.0,
               ),
-              FlatButton(
+              TextButton(
                 child: Text(
                   'Click here to complete online',
                   style: TextStyle(

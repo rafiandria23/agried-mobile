@@ -185,10 +185,23 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             // Title
-            Text('Major nutrients'),
+            Text(
+              'Major nutrients',
+              style: TextStyle(
+                color: Colors.grey[500],
+              ),
+            ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+            ),
 
             // Nitrogen (N)
-            Text('Nitrogen (N)'),
+            Text(
+              'Nitrogen (N)',
+              style: TextStyle(
+                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+              ),
+            ),
             TextFormField(
               autofocus: true,
               controller: nController,
@@ -200,9 +213,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               keyboardType: TextInputType.number,
               onEditingComplete: () => node.nextFocus(),
             ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+            ),
 
             // Phosphate
-            Text('Phosphate'),
+            Text(
+              'Phosphate',
+              style: TextStyle(
+                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+              ),
+            ),
             TextFormField(
               controller: phosphateController,
               decoration: InputDecoration(
@@ -213,9 +234,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               keyboardType: TextInputType.number,
               onEditingComplete: () => node.nextFocus(),
             ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+            ),
 
             // Potash
-            Text('Potash'),
+            Text(
+              'Potash',
+              style: TextStyle(
+                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+              ),
+            ),
             TextFormField(
               controller: potashController,
               decoration: InputDecoration(
@@ -248,10 +277,23 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             // Title
-            Text('Micro nutrients'),
+            Text(
+              'Micro nutrients',
+              style: TextStyle(
+                color: Colors.grey[500],
+              ),
+            ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+            ),
 
             // Zinc (Zn)
-            Text('Zinc (Zn)'),
+            Text(
+              'Zinc (Zn)',
+              style: TextStyle(
+                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+              ),
+            ),
             TextFormField(
               controller: znController,
               decoration: InputDecoration(
@@ -262,9 +304,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               keyboardType: TextInputType.number,
               onEditingComplete: () => node.nextFocus(),
             ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+            ),
 
             // Boron (B)
-            Text('Boron (B)'),
+            Text(
+              'Boron (B)',
+              style: TextStyle(
+                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+              ),
+            ),
             TextFormField(
               controller: bController,
               decoration: InputDecoration(
@@ -275,9 +325,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               keyboardType: TextInputType.number,
               onEditingComplete: () => node.nextFocus(),
             ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+            ),
 
             // Iron (Fe)
-            Text('Iron (Fe)'),
+            Text(
+              'Iron (Fe)',
+              style: TextStyle(
+                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+              ),
+            ),
             TextFormField(
               controller: feController,
               decoration: InputDecoration(
@@ -288,9 +346,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               keyboardType: TextInputType.number,
               onEditingComplete: () => node.nextFocus(),
             ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+            ),
 
             // Manganese (Mn)
-            Text('Manganese (Mn)'),
+            Text(
+              'Manganese (Mn)',
+              style: TextStyle(
+                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+              ),
+            ),
             TextFormField(
               controller: mnController,
               decoration: InputDecoration(
@@ -301,9 +367,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               keyboardType: TextInputType.number,
               onEditingComplete: () => node.nextFocus(),
             ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+            ),
 
             // Copper (Cu)
-            Text('Copper (Cu)'),
+            Text(
+              'Copper (Cu)',
+              style: TextStyle(
+                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+              ),
+            ),
             TextFormField(
               controller: cuController,
               decoration: InputDecoration(
@@ -314,9 +388,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               keyboardType: TextInputType.number,
               onEditingComplete: () => node.nextFocus(),
             ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+            ),
 
             // Molybdenum (Mo)
-            Text('Molybdenum (Mo)'),
+            Text(
+              'Molybdenum (Mo)',
+              style: TextStyle(
+                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+              ),
+            ),
             TextFormField(
               controller: moController,
               decoration: InputDecoration(
@@ -327,9 +409,17 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               keyboardType: TextInputType.number,
               onEditingComplete: () => node.nextFocus(),
             ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+            ),
 
             // Chlorine (CI)
-            Text('Chlorine (CI)'),
+            Text(
+              'Chlorine (CI)',
+              style: TextStyle(
+                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+              ),
+            ),
             TextFormField(
               controller: ciController,
               decoration: InputDecoration(
@@ -387,7 +477,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       content: Text(message),
     );
 
-    Scaffold.of(_scaffoldContext).showSnackBar(snackbar);
+    ScaffoldMessenger.of(_scaffoldContext).showSnackBar(snackbar);
   }
 
   @override
@@ -410,6 +500,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               dropdownColor: Colors.blue,
               style: TextStyle(
                 color: Colors.white,
+                fontWeight: FontWeight.w500,
                 fontSize: ResponsiveFlutter.of(context).fontSize(2.5),
               ),
               value: _selectedUnit,

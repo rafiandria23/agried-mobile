@@ -127,17 +127,7 @@ class _SignInScreenState extends State<SignInScreen> {
       onFieldSubmitted: (_) => node.unfocus(),
     );
 
-    FlatButton signInButton = FlatButton(
-      minWidth: MediaQuery.of(context).size.width,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(32.0),
-      ),
-      padding: EdgeInsets.only(
-        top: 16.0,
-        bottom: 16.0,
-      ),
-      color: Colors.blue,
-      textColor: Colors.white,
+    ElevatedButton signInButton = ElevatedButton(
       onPressed: _handleSignIn,
       child: Text(
         'Sign In'.toUpperCase(),

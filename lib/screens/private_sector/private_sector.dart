@@ -226,7 +226,7 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
           ),
           Container(
             height: 40.0,
-            child: FlatButton(
+            child: ElevatedButton(
               child: Text(
                 'Find',
                 style: TextStyle(
@@ -234,9 +234,6 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
                 ),
               ),
               onPressed: _handleFilter,
-              shape: RoundedRectangleBorder(),
-              color: Colors.blue,
-              textColor: Colors.white,
             ),
           ),
         ],
