@@ -17,13 +17,14 @@ dependencies:
   responsive_flutter: ^0.0.4
   metadata_fetch: ^0.3.4
   shimmer: ^1.1.2
+  url_launcher: ^6.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
 flutter_icons:
-  image_path: "assets/icons/logo.png"
+  image_path: "assets/icons/flutter_logo.png"
   android: true
   ios: true
 
