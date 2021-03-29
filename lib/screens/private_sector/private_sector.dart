@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:agried/models.dart';
 import 'package:agried/components.dart';
 
@@ -132,6 +133,22 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
 
   void _handleFilter() {}
 
+  List<Widget> _renderJobList(BuildContext context) {
+    if (_filteredJobs.isEmpty) {
+      return [
+        Text(
+          'No jobs available.',
+        ),
+      ];
+    } else {
+      return _filteredJobs
+          .map(
+            (Job filteredJob) => JobCard(job: filteredJob),
+          )
+          .toList();
+    }
+  }
+
   @override
   void initState() {
     super.initState();
@@ -143,118 +160,6 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
 
   @override
   Widget build(BuildContext context) {
-    Text title = Text(
-      'IPB-TVET',
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 28.0,
-      ),
-      textAlign: TextAlign.justify,
-    );
-    Text subtitle = Text(
-      'Intern Job Search',
-      style: TextStyle(
-        fontWeight: FontWeight.bold,
-        fontSize: 28.0,
-      ),
-      textAlign: TextAlign.justify,
-    );
-
-    Form filterForm = Form(
-      key: _filterFormKey,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          TextFormField(
-            controller: whatController,
-            decoration: InputDecoration(
-              prefixIcon: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      'What',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              hintText: 'Agriculture Internship',
-              isDense: true,
-              filled: true,
-              fillColor: Colors.white,
-              border: OutlineInputBorder(),
-            ),
-            keyboardType: TextInputType.text,
-          ),
-          SizedBox(
-            height: 15.0,
-          ),
-          TextFormField(
-            controller: whereController,
-            decoration: InputDecoration(
-              prefixIcon: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      'Where',
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  )
-                ],
-              ),
-              hintText: 'City, state, zip code',
-              isDense: true,
-              filled: true,
-              fillColor: Colors.white,
-              border: OutlineInputBorder(),
-            ),
-            keyboardType: TextInputType.text,
-          ),
-          SizedBox(
-            height: 15.0,
-          ),
-          Container(
-            height: 40.0,
-            child: ElevatedButton(
-              child: Text(
-                'Find',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              onPressed: _handleFilter,
-            ),
-          ),
-        ],
-      ),
-    );
-
-    Widget jobList = _filteredJobs.isEmpty
-        ? Text(
-            'No jobs available.',
-          )
-        : Flexible(
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return JobCard(
-                  job: _filteredJobs[index],
-                );
-              },
-              itemCount: _filteredJobs.length,
-            ),
-          );
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Private Sector'),
@@ -264,38 +169,132 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
         onTap: () {
           _toggleKeyboard(context);
         },
-        child: Padding(
-          padding: EdgeInsets.all(12.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              SizedBox(
-                height: 20.0,
+        child: ListView(
+          padding: EdgeInsets.all(
+            ResponsiveFlutter.of(context).moderateScale(12.0),
+          ),
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Image(
+                  image: AssetImage(
+                    'assets/icons/logo.png',
+                  ),
+                  height: ResponsiveFlutter.of(context).verticalScale(32.0),
+                ),
+              ],
+            ),
+            Text(
+              'IPB-TVET',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.center,
+              textAlign: TextAlign.start,
+            ),
+            Text(
+              'Intern Job Search',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+              ),
+              textAlign: TextAlign.start,
+            ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(16.0),
+            ),
+            Form(
+              key: _filterFormKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  Image(
-                    image: AssetImage(
-                      'assets/icons/logo.png',
+                  TextFormField(
+                    controller: whatController,
+                    decoration: InputDecoration(
+                      prefixIcon: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: ResponsiveFlutter.of(context)
+                                  .moderateScale(8.0),
+                            ),
+                            child: Text(
+                              'What',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      hintText: 'Agriculture Internship',
+                      isDense: true,
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
                     ),
-                    height: 48.0,
+                    keyboardType: TextInputType.text,
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                  ),
+                  TextFormField(
+                    controller: whereController,
+                    decoration: InputDecoration(
+                      prefixIcon: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: ResponsiveFlutter.of(context)
+                                  .moderateScale(8.0),
+                            ),
+                            child: Text(
+                              'Where',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                      hintText: 'City, state, zip code',
+                      isDense: true,
+                      filled: true,
+                      fillColor: Colors.white,
+                      border: OutlineInputBorder(),
+                    ),
+                    keyboardType: TextInputType.text,
+                  ),
+                  SizedBox(
+                    height: ResponsiveFlutter.of(context).verticalScale(12.0),
+                  ),
+                  Container(
+                    height: ResponsiveFlutter.of(context).verticalScale(30.0),
+                    child: ElevatedButton(
+                      child: Text(
+                        'Find',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      onPressed: _handleFilter,
+                    ),
                   ),
                 ],
               ),
-              title,
-              subtitle,
-              SizedBox(
-                height: 20.0,
-              ),
-              filterForm,
-              SizedBox(
-                height: 20.0,
-              ),
-              jobList,
-            ],
-          ),
+            ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(16.0),
+            ),
+            ..._renderJobList(context),
+          ],
         ),
       ),
     );
