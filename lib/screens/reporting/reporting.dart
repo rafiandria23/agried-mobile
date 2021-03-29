@@ -114,7 +114,6 @@ class _ReportingScreenState extends State<ReportingScreen> {
         AssetImage('assets/images/reporting/reporting_image.png');
 
     TextFormField personalDetailsTextFormField = TextFormField(
-      autofocus: true,
       controller: personalDetailsController,
       decoration: InputDecoration(
         labelText: 'Personal Details',

@@ -203,7 +203,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               ),
             ),
             TextFormField(
-              autofocus: true,
               controller: nController,
               decoration: InputDecoration(
                 labelText: 'Enter N',
