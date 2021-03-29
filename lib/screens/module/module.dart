@@ -1,5 +1,6 @@
-import 'package:agried/screens.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_flutter/responsive_flutter.dart';
+import 'package:agried/screens.dart';
 import 'package:agried/components.dart';
 import 'package:agried/models.dart';
 
@@ -22,33 +23,17 @@ class ModuleScreen extends StatelessWidget {
       body: Center(
         child: ListView(
           children: <Widget>[
-            Padding(
-              padding: EdgeInsets.all(30.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: <Widget>[
-                  Image(
-                    image: AssetImage(
-                      'assets/icons/logo.png',
-                    ),
-                    height: 48.0,
-                  ),
-                ],
-              ),
-            ),
             ModuleBase(
-              // moduleTitle: modules[moduleIndex].moduleTitle,
               title: modules[moduleIndex].title,
               images: modules[moduleIndex].images,
               content: modules[moduleIndex].content,
             ),
+            SizedBox(
+              height: ResponsiveFlutter.of(context).verticalScale(16.0),
+            ),
             IconButton(
               icon: ImageIcon(
                 AssetImage('assets/icons/down_arrows.png'),
-              ),
-              padding: EdgeInsets.only(
-                top: 16.0,
-                bottom: 16.0,
               ),
               onPressed: () {
                 if (modules.length == moduleIndex + 1) {

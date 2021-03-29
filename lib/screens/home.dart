@@ -57,25 +57,26 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
       content:
-          """There is a large list of important components of a farming operation for which it might be useful to have data on the extent of variability. For some, such as fertiliser quality, farmers rely on outside companies to minimise the variation and so 'remove' the need for substantial 'on-farm' management.
+          '''There is a large list of important components of a farming operation for which it might be useful to have data on the extent of variability. For some, such as fertiliser quality, farmers rely on outside companies to minimise the variation and so 'remove' the need for substantial 'on-farm' management.
           
-          Others, such as crop yield, soil properties and pest and disease outbreaks, vary differently on each farm. Local knowledge about variability in these parts of the farming system can be used to build site-specific crop management (SSCM) strategies. SSCM can be used to identify and treat any areas where yield potential can be improved or better match input use to the natural yield potential across a field or farm.""",
+          Others, such as crop yield, soil properties and pest and disease outbreaks, vary differently on each farm. Local knowledge about variability in these parts of the farming system can be used to build site-specific crop management (SSCM) strategies. SSCM can be used to identify and treat any areas where yield potential can be improved or better match input use to the natural yield potential across a field or farm.''',
     ),
     Module(
-        moduleTitle: 'Module D',
-        title: 'Development Agriculture',
-        images: <AssetImage>[
-          AssetImage(
-            'assets/images/modules/d/module_d_image_1.png',
-          ),
-          AssetImage(
-            'assets/images/modules/d/module_d_image_2.png',
-          ),
-        ],
-        content:
-            '''The Development Agriculture theme brings together researchers with vast experience and diverse expertise from across the Faculties and with other University of Sydney Centres, such as the Charles Perkins Centre, Sydney Southeast Asia Centre, and Marie Bashir Institute for Infectious Diseases and Biosecurity.
+      moduleTitle: 'Module D',
+      title: 'Development Agriculture',
+      images: <AssetImage>[
+        AssetImage(
+          'assets/images/modules/d/module_d_image_1.png',
+        ),
+        AssetImage(
+          'assets/images/modules/d/module_d_image_2.png',
+        ),
+      ],
+      content:
+          '''The Development Agriculture theme brings together researchers with vast experience and diverse expertise from across the Faculties and with other University of Sydney Centres, such as the Charles Perkins Centre, Sydney Southeast Asia Centre, and Marie Bashir Institute for Infectious Diseases and Biosecurity.
             
-            The goal of the Development Agriculture theme is to initiate and facilitate interdisciplinary collaborations by uniting researchers from multiple disciplines with expertise relating to agriculture and food in developing economies.'''),
+            The goal of the Development Agriculture theme is to initiate and facilitate interdisciplinary collaborations by uniting researchers from multiple disciplines with expertise relating to agriculture and food in developing economies.''',
+    ),
   ];
 
   @override
