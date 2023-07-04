@@ -1,16 +1,14 @@
-import 'package:flutter/material.dart';
-
 class CalculatorFertilizerGrade {
-  String name;
+  String? name;
   String label;
   String nutrient;
 
-  double Function(double input) calculate;
+  double Function(double input)? calculate;
 
   CalculatorFertilizerGrade({
     this.name,
-    @required this.label,
-    @required this.nutrient,
+    required this.label,
+    required this.nutrient,
     this.calculate,
   });
 }

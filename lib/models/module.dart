@@ -7,9 +7,9 @@ class Module {
   final String content;
 
   Module({
-    @required this.moduleTitle,
-    @required this.title,
-    @required this.images,
-    @required this.content,
+    required this.moduleTitle,
+    required this.title,
+    required this.images,
+    required this.content,
   });
 }

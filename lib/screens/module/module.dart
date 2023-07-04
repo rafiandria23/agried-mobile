@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:agried/screens.dart';
 import 'package:agried/components.dart';
 import 'package:agried/models.dart';
@@ -9,9 +8,9 @@ class ModuleScreen extends StatelessWidget {
   final int moduleIndex;
 
   ModuleScreen({
-    Key key,
-    @required this.modules,
-    @required this.moduleIndex,
+    Key? key,
+    required this.modules,
+    required this.moduleIndex,
   }) : super(key: key);
 
   @override
@@ -29,7 +28,7 @@ class ModuleScreen extends StatelessWidget {
               content: modules[moduleIndex].content,
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(16.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(16.0),
             ),
             IconButton(
               icon: ImageIcon(

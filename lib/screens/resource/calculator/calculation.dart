@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:agried/models.dart';
 import 'package:agried/components.dart';
 
 class CalculationScreen extends StatefulWidget {
-  CalculationScreen({Key key}) : super(key: key);
+  CalculationScreen({Key? key}) : super(key: key);
 
   static const String route = '/resources/calculator/calculations';
 
@@ -13,7 +12,7 @@ class CalculationScreen extends StatefulWidget {
 }
 
 class _CalculationScreenState extends State<CalculationScreen> {
-  List<Calculation> _calculations;
+  List<Calculation>? _calculations;
 
   void _handleBack(BuildContext context) {
     Navigator.of(context).popUntil(
@@ -23,7 +22,7 @@ class _CalculationScreenState extends State<CalculationScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final Map arguments = ModalRoute.of(context).settings.arguments as Map;
+    final Map arguments = ModalRoute.of(context)?.settings.arguments as Map;
     _calculations = arguments['calculations'];
 
     return Scaffold(
@@ -42,10 +41,10 @@ class _CalculationScreenState extends State<CalculationScreen> {
       ),
       body: ListView(
         padding: EdgeInsets.all(
-          ResponsiveFlutter.of(context).moderateScale(8.0),
+          // ResponsiveFlutter.of(context).moderateScale(8.0),
+          8.0
         ),
-        children: _calculations
-            .map((Calculation calculation) => CalculationCard(
+        children: _calculations!.map((Calculation calculation) => CalculationCard(
                   calculation: calculation,
                 ))
             .toList(),

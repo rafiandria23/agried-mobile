@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class Job {
   final String title;
   final String company;
@@ -7,10 +5,10 @@ class Job {
   final List<String> description;
 
   Job({
-    @required this.title,
-    @required this.company,
-    @required this.location,
-    @required this.description,
+    required this.title,
+    required this.company,
+    required this.location,
+    required this.description,
   });
 }
 
@@ -21,9 +19,9 @@ class JobLocation {
   final int zipCode;
 
   JobLocation({
-    @required this.city,
-    @required this.state,
-    @required this.alphaCode,
-    @required this.zipCode,
+    required this.city,
+    required this.state,
+    required this.alphaCode,
+    required this.zipCode,
   });
 }

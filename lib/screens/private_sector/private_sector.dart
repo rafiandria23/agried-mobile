@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:agried/models.dart';
 import 'package:agried/components.dart';
 
 class PrivateSectorScreen extends StatefulWidget {
-  PrivateSectorScreen({Key key}) : super(key: key);
+  PrivateSectorScreen({Key? key}) : super(key: key);
 
   static const String route = '/private_sector';
 
@@ -120,8 +119,8 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
   final TextEditingController whatController = TextEditingController();
   final TextEditingController whereController = TextEditingController();
 
-  String whatQuery;
-  String whereQuery;
+  // String whatQuery;
+  // String whereQuery;
 
   void _toggleKeyboard(BuildContext context) {
     FocusScopeNode currentFocus = FocusScope.of(context);
@@ -171,7 +170,8 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
         },
         child: ListView(
           padding: EdgeInsets.all(
-            ResponsiveFlutter.of(context).moderateScale(12.0),
+            // ResponsiveFlutter.of(context).moderateScale(12.0),
+            12.0,
           ),
           children: <Widget>[
             Row(
@@ -182,7 +182,7 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
                   image: AssetImage(
                     'assets/icons/logo.png',
                   ),
-                  height: ResponsiveFlutter.of(context).verticalScale(32.0),
+                  // height: ResponsiveFlutter.of(context).verticalScale(32.0),
                 ),
               ],
             ),
@@ -190,7 +190,7 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
               'IPB-TVET',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
               ),
               textAlign: TextAlign.start,
             ),
@@ -198,12 +198,12 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
               'Intern Job Search',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
               ),
               textAlign: TextAlign.start,
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(16.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(16.0),
             ),
             Form(
               key: _filterFormKey,
@@ -219,8 +219,8 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
                         children: <Widget>[
                           Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal: ResponsiveFlutter.of(context)
-                                  .moderateScale(8.0),
+                              // horizontal: ResponsiveFlutter.of(context)
+                              //     .moderateScale(8.0),
                             ),
                             child: Text(
                               'What',
@@ -241,7 +241,7 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
                     keyboardType: TextInputType.text,
                   ),
                   SizedBox(
-                    height: ResponsiveFlutter.of(context).verticalScale(10.0),
+                    // height: ResponsiveFlutter.of(context).verticalScale(10.0),
                   ),
                   TextFormField(
                     controller: whereController,
@@ -251,8 +251,8 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
                         children: <Widget>[
                           Padding(
                             padding: EdgeInsets.symmetric(
-                              horizontal: ResponsiveFlutter.of(context)
-                                  .moderateScale(8.0),
+                              // horizontal: ResponsiveFlutter.of(context)
+                              //     .moderateScale(8.0),
                             ),
                             child: Text(
                               'Where',
@@ -273,10 +273,10 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
                     keyboardType: TextInputType.text,
                   ),
                   SizedBox(
-                    height: ResponsiveFlutter.of(context).verticalScale(12.0),
+                    // height: ResponsiveFlutter.of(context).verticalScale(12.0),
                   ),
                   Container(
-                    height: ResponsiveFlutter.of(context).verticalScale(30.0),
+                    // height: ResponsiveFlutter.of(context).verticalScale(30.0),
                     child: ElevatedButton(
                       child: Text(
                         'Find',
@@ -291,7 +291,7 @@ class _PrivateSectorScreenState extends State<PrivateSectorScreen> {
               ),
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(16.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(16.0),
             ),
             ..._renderJobList(context),
           ],

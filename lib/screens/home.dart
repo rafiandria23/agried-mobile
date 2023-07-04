@@ -3,10 +3,9 @@ import 'package:agried/models.dart';
 import 'package:agried/components.dart';
 import 'package:agried/screens.dart';
 import 'package:flutter/services.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -84,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
     List<Widget> items = <Widget>[
       Padding(
         padding: EdgeInsets.only(
-          bottom: ResponsiveFlutter.of(context).moderateScale(20.0),
+          // bottom: ResponsiveFlutter.of(context).moderateScale(20.0),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -93,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
               image: AssetImage(
                 'assets/icons/logo.png',
               ),
-              height: ResponsiveFlutter.of(context).verticalScale(64.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(64.0),
             ),
           ],
         ),
@@ -110,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+            // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage: AssetImage('assets/images/home/modules_card_bg.png'),
@@ -132,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+            // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage: AssetImage('assets/images/home/resources_card_bg.png'),
@@ -150,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.blue,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+            // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage: AssetImage('assets/images/home/reporting_card_bg.png'),
@@ -168,7 +167,7 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+            // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage:
@@ -189,7 +188,9 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SafeArea(
           child: ListView.separated(
             padding: EdgeInsets.all(
-                ResponsiveFlutter.of(context).moderateScale(8.0)),
+                // ResponsiveFlutter.of(context).moderateScale(8.0),
+              8.0,
+            ),
             itemCount: items.length,
             itemBuilder: (BuildContext itemBuilderContext, int index) {
               return items[index];

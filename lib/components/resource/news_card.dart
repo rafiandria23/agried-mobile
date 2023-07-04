@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:agried/screens.dart';
 
 class NewsCard extends StatelessWidget {
@@ -9,11 +8,11 @@ class NewsCard extends StatelessWidget {
   final String url;
 
   NewsCard({
-    Key key,
-    @required this.title,
-    @required this.description,
-    @required this.imageURL,
-    @required this.url,
+    Key? key,
+    required this.title,
+    required this.description,
+    required this.imageURL,
+    required this.url,
   });
 
   @override
@@ -37,7 +36,8 @@ class NewsCard extends StatelessWidget {
         elevation: 2.0,
         child: Container(
           padding: EdgeInsets.all(
-            ResponsiveFlutter.of(context).moderateScale(16.0),
+            // ResponsiveFlutter.of(context).moderateScale(16.0),
+            16.0,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -57,11 +57,11 @@ class NewsCard extends StatelessWidget {
                       softWrap: false,
                       style: TextStyle(
                           color: Colors.black,
-                          fontSize:
-                              ResponsiveFlutter.of(context).fontSize(2.0)),
+                          // fontSize: ResponsiveFlutter.of(context).fontSize(2.0)),
+                      ),
                     ),
                     SizedBox(
-                      height: ResponsiveFlutter.of(context).verticalScale(8.0),
+                      // height: ResponsiveFlutter.of(context).verticalScale(8.0),
                     ),
                     Text(
                       description,
@@ -71,14 +71,14 @@ class NewsCard extends StatelessWidget {
                       softWrap: false,
                       style: TextStyle(
                         color: Colors.black,
-                        fontSize: ResponsiveFlutter.of(context).fontSize(1.5),
+                        // fontSize: ResponsiveFlutter.of(context).fontSize(1.5),
                       ),
                     )
                   ],
                 ),
               ),
               SizedBox(
-                width: ResponsiveFlutter.of(context).moderateScale(16.0),
+                // width: ResponsiveFlutter.of(context).moderateScale(16.0),
               ),
               Expanded(
                 flex: 2,

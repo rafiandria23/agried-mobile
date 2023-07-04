@@ -5,8 +5,8 @@ class JobCard extends StatelessWidget {
   final Job job;
 
   JobCard({
-    Key key,
-    @required this.job,
+    Key? key,
+    required this.job,
   }) : super(key: key);
 
   @override

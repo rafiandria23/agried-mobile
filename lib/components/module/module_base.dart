@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 
 class ModuleBase extends StatelessWidget {
   ModuleBase({
-    Key key,
-    @required this.title,
-    @required this.images,
-    @required this.content,
+    Key? key,
+    required this.title,
+    required this.images,
+    required this.content,
   }) : super(key: key);
 
   final String title;
@@ -31,20 +30,21 @@ class ModuleBase extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.all(
-            ResponsiveFlutter.of(context).moderateScale(16.0),
+            // ResponsiveFlutter.of(context).moderateScale(16.0),
+            16.0,
           ),
           child: Column(
             children: <Widget>[
               Text(
                 title,
                 style: TextStyle(
-                  fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+                  // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: ResponsiveFlutter.of(context).verticalScale(16.0),
+                // height: ResponsiveFlutter.of(context).verticalScale(16.0),
               ),
               Text(
                 content,

@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 
 class ResourceCard extends StatelessWidget {
   ResourceCard(
-      {Key key,
-      @required this.backgroundImage,
-      @required this.title,
-      @required this.onTap})
+      {Key? key,
+      required this.backgroundImage,
+      required this.title,
+      required this.onTap})
       : super(key: key);
 
   final AssetImage backgroundImage;
@@ -26,7 +25,7 @@ class ResourceCard extends StatelessWidget {
           children: <Widget>[
             Container(
               width: MediaQuery.of(context).size.width,
-              height: ResponsiveFlutter.of(context).verticalScale(100.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(100.0),
               child: Image(
                 image: backgroundImage,
                 fit: BoxFit.fill,
@@ -34,10 +33,10 @@ class ResourceCard extends StatelessWidget {
             ),
             Container(
               padding: EdgeInsets.only(
-                left: ResponsiveFlutter.of(context).moderateScale(10.0),
-                top: ResponsiveFlutter.of(context).moderateScale(12.0),
-                right: ResponsiveFlutter.of(context).moderateScale(10.0),
-                bottom: ResponsiveFlutter.of(context).moderateScale(0.0),
+                // left: ResponsiveFlutter.of(context).moderateScale(10.0),
+                // top: ResponsiveFlutter.of(context).moderateScale(12.0),
+                // right: ResponsiveFlutter.of(context).moderateScale(10.0),
+                // bottom: ResponsiveFlutter.of(context).moderateScale(0.0),
               ),
               width: MediaQuery.of(context).size.width,
               child: title,

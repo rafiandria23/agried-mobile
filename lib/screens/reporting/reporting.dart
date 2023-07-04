@@ -1,13 +1,12 @@
 // import 'dart:io';
 import 'package:flutter/material.dart';
 // import 'package:file_picker/file_picker.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 // import 'package:agried/screens.dart';
 // import 'package:flutter/services.dart';
 
 class ReportingScreen extends StatefulWidget {
-  ReportingScreen({Key key}) : super(key: key);
+  ReportingScreen({Key? key}) : super(key: key);
 
   static const String route = '/reporting';
 
@@ -233,8 +232,8 @@ class _ReportingScreenState extends State<ReportingScreen> {
         },
         child: Padding(
           padding: EdgeInsets.symmetric(
-            vertical: ResponsiveFlutter.of(context).moderateScale(48.0),
-            horizontal: ResponsiveFlutter.of(context).moderateScale(24.0),
+            // vertical: ResponsiveFlutter.of(context).moderateScale(48.0),
+            // horizontal: ResponsiveFlutter.of(context).moderateScale(24.0),
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -247,12 +246,12 @@ class _ReportingScreenState extends State<ReportingScreen> {
                     image: AssetImage(
                       'assets/icons/logo.png',
                     ),
-                    height: ResponsiveFlutter.of(context).verticalScale(32.0),
+                    // height: ResponsiveFlutter.of(context).verticalScale(32.0),
                   ),
                 ],
               ),
               SizedBox(
-                height: ResponsiveFlutter.of(context).verticalScale(36.0),
+                // height: ResponsiveFlutter.of(context).verticalScale(36.0),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -264,12 +263,12 @@ class _ReportingScreenState extends State<ReportingScreen> {
                 ],
               ),
               SizedBox(
-                height: ResponsiveFlutter.of(context).verticalScale(18.0),
+                // height: ResponsiveFlutter.of(context).verticalScale(18.0),
               ),
               Text(
                 'IPB-TVET',
                 style: TextStyle(
-                  fontSize: ResponsiveFlutter.of(context).fontSize(3.5),
+                  // fontSize: ResponsiveFlutter.of(context).fontSize(3.5),
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -277,7 +276,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
               Text(
                 'Module Reporting',
                 style: TextStyle(
-                  fontSize: ResponsiveFlutter.of(context).fontSize(3.5),
+                  // fontSize: ResponsiveFlutter.of(context).fontSize(3.5),
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -291,7 +290,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
                     SizedBox(
-                      height: ResponsiveFlutter.of(context).verticalScale(32.0),
+                      // height: ResponsiveFlutter.of(context).verticalScale(32.0),
                       child: ElevatedButton(
                         style: ButtonStyle(
                           backgroundColor:
@@ -304,8 +303,7 @@ class _ReportingScreenState extends State<ReportingScreen> {
                           style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
-                            fontSize:
-                                ResponsiveFlutter.of(context).fontSize(2.5),
+                            // fontSize: ResponsiveFlutter.of(context).fontSize(2.5),
                           ),
                         ),
                         onPressed: _launchURL,

@@ -3,7 +3,7 @@ import 'package:agried/screens.dart';
 import 'package:flutter/services.dart';
 
 class SignInScreen extends StatefulWidget {
-  SignInScreen({Key key}) : super(key: key);
+  SignInScreen({Key? key}) : super(key: key);
 
   static const String route = '/signin';
 
@@ -15,8 +15,8 @@ class _SignInScreenState extends State<SignInScreen> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  String _email;
-  String _password;
+  String? _email;
+  String? _password;
 
   bool _passwordVisibility = false;
 
@@ -42,7 +42,7 @@ class _SignInScreenState extends State<SignInScreen> {
       _password = passwordController.text;
     });
 
-    if (_formKey.currentState.validate()) {
+    if (_formKey.currentState!.validate()) {
       if (_email != 'siti@agried.com') {
         print('Wrong email or password!');
       } else if (_password != 'agried123') {
@@ -60,12 +60,10 @@ class _SignInScreenState extends State<SignInScreen> {
 
     TextFormField emailTextFormField = TextFormField(
       autofocus: true,
-      validator: (value) {
-        if (value.isEmpty) {
+      validator: (String? value) {
+        if (value == null || value.isEmpty) {
           return 'Emaill cannot be empty!';
-        } else if (!RegExp(
-                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-            .hasMatch(value)) {
+        } else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)) {
           return 'Invalid Email address!';
         }
 
@@ -90,8 +88,8 @@ class _SignInScreenState extends State<SignInScreen> {
     );
 
     TextFormField passwordTextFormField = TextFormField(
-      validator: (value) {
-        if (value.isEmpty) {
+      validator: (String? value) {
+        if (value == null || value.isEmpty) {
           return 'Password cannot be empty!';
         } else if (value.length < 6) {
           return 'Password must be at least 6 characters!';

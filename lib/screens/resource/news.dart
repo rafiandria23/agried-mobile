@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:metadata_fetch/metadata_fetch.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:agried/components.dart';
 
 class NewsScreen extends StatefulWidget {
-  NewsScreen({Key key}) : super(key: key);
+  NewsScreen({Key? key}) : super(key: key);
 
   static const String route = '/resources/news';
 
@@ -24,17 +23,17 @@ class _NewsScreenState extends State<NewsScreen> {
   ];
 
   Future<List<NewsCard>> fetchNewsMetadata() async {
-    List<Metadata> fetchedNewsMetadata = await Future.wait(newsURLs.map(
-      (String newsURL) => extract(newsURL),
+    List<Metadata?> fetchedNewsMetadata = await Future.wait(newsURLs.map(
+      (String newsURL) => MetadataFetch.extract(newsURL),
     ));
 
     return fetchedNewsMetadata
         .map(
-          (Metadata metadata) => NewsCard(
-            title: metadata.title,
-            description: metadata.description,
-            imageURL: metadata.image,
-            url: metadata.url,
+          (Metadata? metadata) => NewsCard(
+            title: metadata!.title!,
+            description: metadata.description!,
+            imageURL: metadata.image!,
+            url: metadata.url!,
           ),
         )
         .toList();
@@ -48,12 +47,13 @@ class _NewsScreenState extends State<NewsScreen> {
       ),
       body: ListView(
         padding: EdgeInsets.all(
-          ResponsiveFlutter.of(context).moderateScale(10.0),
+          // ResponsiveFlutter.of(context).moderateScale(10.0),
+          10.0
         ),
         children: <Widget>[
           Padding(
             padding: EdgeInsets.only(
-              bottom: ResponsiveFlutter.of(context).moderateScale(16.0),
+              // bottom: ResponsiveFlutter.of(context).moderateScale(16.0),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -62,7 +62,7 @@ class _NewsScreenState extends State<NewsScreen> {
                   image: AssetImage(
                     'assets/icons/logo.png',
                   ),
-                  height: ResponsiveFlutter.of(context).verticalScale(64.0),
+                  // height: ResponsiveFlutter.of(context).verticalScale(64.0),
                 ),
               ],
             ),
@@ -80,17 +80,15 @@ class _NewsScreenState extends State<NewsScreen> {
                 children: newsURLs
                     .map(
                       (String newsURL) => Shimmer.fromColors(
-                        baseColor: Colors.grey[300],
-                        highlightColor: Colors.grey[100],
+                        baseColor: Colors.grey.shade300,
+                        highlightColor: Colors.grey.shade100,
                         enabled: true,
                         child: Padding(
                           padding: EdgeInsets.only(
-                            bottom: ResponsiveFlutter.of(context)
-                                .moderateScale(16.0),
+                            // bottom: ResponsiveFlutter.of(context).moderateScale(16.0),
                           ),
                           child: Container(
-                            height: ResponsiveFlutter.of(context)
-                                .verticalScale(100.0),
+                            // height: ResponsiveFlutter.of(context).verticalScale(100.0),
                             decoration: BoxDecoration(
                               color: Colors.white,
                               borderRadius:
