@@ -1,5 +1,5 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class OnlineNewsScreen extends StatefulWidget {
@@ -24,7 +24,7 @@ class _OnlineNewsScreenState extends State<OnlineNewsScreen> {
   final String url;
   late WebViewController webViewController;
 
-  late int _progress;
+  int _progress = 0;
 
   _OnlineNewsScreenState({
     required this.title,
@@ -35,17 +35,33 @@ class _OnlineNewsScreenState extends State<OnlineNewsScreen> {
   void initState() {
     super.initState();
 
-    webViewController = WebViewController();
-    webViewController.setJavaScriptMode(JavaScriptMode.unrestricted);
-    webViewController.setNavigationDelegate(
-      NavigationDelegate(
-        onProgress: (int progress) {
-          setState(() {
-            _progress = progress;
-          });
-        },
-      ),
-    );
+    webViewController = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..setNavigationDelegate(
+        NavigationDelegate(
+          onProgress: (int progress) {
+            setState(() {
+              _progress = progress;
+            });
+          },
+          onNavigationRequest: (NavigationRequest request) {
+            print(
+              'Current: ${url}\nRequest: ${request.url}\nResult: ${url.compareTo(request.url)}\nisMainFrame: ${request.isMainFrame}',
+            );
+
+            if (request.isMainFrame && url.compareTo(request.url) != 0) {
+              launchUrl(
+                Uri.parse(request.url),
+                mode: LaunchMode.externalApplication,
+              );
+              return NavigationDecision.prevent;
+            } else {
+              return NavigationDecision.navigate;
+            }
+          },
+        ),
+      )
+      ..loadRequest(Uri.parse(url));
   }
 
   @override
@@ -54,25 +70,26 @@ class _OnlineNewsScreenState extends State<OnlineNewsScreen> {
       appBar: AppBar(
         title: Text(
           title,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          softWrap: true,
-          style: TextStyle(
-            // fontSize: ResponsiveFlutter.of(context).fontSize(2.0),
-          ),
+          overflow: TextOverflow.fade,
         ),
+        actions: <Widget>[
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () {
+              webViewController.reload();
+            },
+          ),
+        ],
         bottom: PreferredSize(
           preferredSize: Size.zero,
-          child: LinearProgressIndicator(
-            value: _progress / 100,
-            backgroundColor: Colors.white,
-            valueColor: AlwaysStoppedAnimation<Color>(
-              Colors.blue,
-            ),
-          ),
+          child: _progress != 100
+              ? LinearProgressIndicator(value: _progress / 100)
+              : SizedBox(),
         ),
       ),
-      body: WebViewWidget(controller: webViewController),
+      body: WebViewWidget(
+        controller: webViewController,
+      ),
     );
   }
 }

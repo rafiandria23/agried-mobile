@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:agried/screens.dart';
+import 'package:flutter/material.dart';
 
 class NewsCard extends StatelessWidget {
   final String title;
@@ -31,20 +31,18 @@ class NewsCard extends StatelessWidget {
       },
       child: Card(
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12.0),
+          borderRadius: BorderRadius.circular(10.0),
         ),
-        elevation: 2.0,
         child: Container(
-          padding: EdgeInsets.all(
-            // ResponsiveFlutter.of(context).moderateScale(16.0),
-            16.0,
-          ),
+          width: MediaQuery.of(context).size.width,
+          height: 150.0,
+          padding: EdgeInsets.all(10.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               Expanded(
-                flex: 8,
+                flex: 2,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -52,46 +50,26 @@ class NewsCard extends StatelessWidget {
                     Text(
                       title,
                       textAlign: TextAlign.start,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      softWrap: false,
-                      style: TextStyle(
-                          color: Colors.black,
-                          // fontSize: ResponsiveFlutter.of(context).fontSize(2.0)),
-                      ),
-                    ),
-                    SizedBox(
-                      // height: ResponsiveFlutter.of(context).verticalScale(8.0),
-                    ),
-                    Text(
-                      description,
-                      textAlign: TextAlign.start,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
-                      softWrap: false,
-                      style: TextStyle(
-                        color: Colors.black,
-                        // fontSize: ResponsiveFlutter.of(context).fontSize(1.5),
-                      ),
-                    )
+                      softWrap: true,
+                      style: Theme.of(context).textTheme.titleSmall,
+                    ),
                   ],
                 ),
               ),
               SizedBox(
-                // width: ResponsiveFlutter.of(context).moderateScale(16.0),
+                width: 20.0,
               ),
               Expanded(
-                flex: 2,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: <Widget>[
-                    Image.network(
-                      imageURL,
-                    )
-                  ],
+                flex: 1,
+                child: Container(
+                  child: Image.network(
+                    imageURL,
+                    fit: BoxFit.fill,
+                  ),
                 ),
-              )
+              ),
             ],
           ),
         ),

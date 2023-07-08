@@ -30,7 +30,6 @@ class ModuleBase extends StatelessWidget {
         ),
         Padding(
           padding: EdgeInsets.all(
-            // ResponsiveFlutter.of(context).moderateScale(16.0),
             16.0,
           ),
           child: Column(
@@ -38,20 +37,17 @@ class ModuleBase extends StatelessWidget {
               Text(
                 title,
                 style: TextStyle(
-                  // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+                  fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                 ),
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                // height: ResponsiveFlutter.of(context).verticalScale(16.0),
+                height: 16.0,
               ),
               Text(
                 content,
-                style: TextStyle(
-                  fontSize: 16.0,
-                ),
-                textAlign: TextAlign.start,
+                textAlign: TextAlign.justify,
               ),
             ],
           ),
