@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
-  flutter_launcher_icons: ^0.8.1
+  flutter_launcher_icons: ^0.13.0
   file_picker: ^3.0.0
   webview_flutter: ^2.0.2
   responsive_flutter: ^0.0.4
