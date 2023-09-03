@@ -5,17 +5,19 @@ publish_to: "none"
 version: 1.0.3+0
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: "<4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
-  file_picker: ^3.0.0
-  url_launcher: ^6.1.11
+  flutter_launcher_icons: ^0.13.0
+  file_picker: ^5.0.0
+  webview_flutter: ^4.0.0
+  responsive_flutter: ^0.0.4
+  metadata_fetch: ^0.4.0
   shimmer: ^3.0.0
-  metadata_fetch: ^0.4.1
-  webview_flutter: ^4.2.2
+  url_launcher: ^6.0.3
 
 dev_dependencies:
   flutter_test:
