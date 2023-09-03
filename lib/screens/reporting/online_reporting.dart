@@ -6,32 +6,42 @@ class OnlineReportingScreen extends StatefulWidget {
   final String reportURL;
 
   OnlineReportingScreen({
-    Key key,
-    @required this.reportURL,
+    Key? key,
+    required this.reportURL,
   }) : super(key: key);
 
   @override
   _OnlineReportingScreenState createState() => _OnlineReportingScreenState(
-        reportURL: reportURL,
-      );
+    reportURL: reportURL,
+  );
 }
 
 class _OnlineReportingScreenState extends State<OnlineReportingScreen> {
   final String reportURL;
+  late WebViewController webViewController;
 
-  bool _loading = true;
+  late int _progress;
 
   _OnlineReportingScreenState({
-    @required this.reportURL,
+    required this.reportURL,
   });
 
   @override
   void initState() {
     super.initState();
 
-    if (Platform.isAndroid) {
-      WebView.platform = SurfaceAndroidWebView();
-    }
+    webViewController = WebViewController();
+    webViewController.setJavaScriptMode(JavaScriptMode.unrestricted);
+    webViewController.setNavigationDelegate(
+        NavigationDelegate(
+          onProgress: (int progress) {
+            setState(() {
+              _progress = progress;
+            });
+          },
+        ),
+      );
+    webViewController.loadRequest(Uri.parse(reportURL));
   }
 
   @override
@@ -43,18 +53,16 @@ class _OnlineReportingScreenState extends State<OnlineReportingScreen> {
         ),
         bottom: PreferredSize(
           preferredSize: Size.zero,
-          child: _loading ? LinearProgressIndicator() : SizedBox(),
+          child: LinearProgressIndicator(
+            value: _progress / 100,
+            backgroundColor: Colors.white,
+            valueColor: AlwaysStoppedAnimation<Color>(
+              Colors.blue,
+            ),
+          ),
         ),
       ),
-      body: WebView(
-        initialUrl: reportURL,
-        javascriptMode: JavascriptMode.unrestricted,
-        onPageFinished: (String finished) {
-          setState(() {
-            _loading = false;
-          });
-        },
-      ),
+      body: WebViewWidget(controller: webViewController),
     );
   }
 }

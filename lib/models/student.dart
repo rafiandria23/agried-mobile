@@ -9,11 +9,11 @@ class Student {
   final String serialNo;
 
   Student({
-    this.id,
-    this.name,
-    this.className,
-    this.school,
-    this.major,
-    this.serialNo,
+    required this.id,
+    required this.name,
+    required this.className,
+    required this.school,
+    required this.major,
+    required this.serialNo,
   });
 }

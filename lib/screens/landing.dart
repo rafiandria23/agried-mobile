@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:agried/screens.dart';
 
 class LandingScreen extends StatefulWidget {
-  LandingScreen({Key key}) : super(key: key);
+  LandingScreen({Key? key}) : super(key: key);
 
   static const String route = '/landing';
 

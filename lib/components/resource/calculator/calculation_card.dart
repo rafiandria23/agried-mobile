@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:agried/models.dart';
 
 class CalculationCard extends StatelessWidget {
   final Calculation calculation;
 
   CalculationCard({
-    Key key,
-    @required this.calculation,
+    Key? key,
+    required this.calculation,
   }) : super(key: key);
 
   @override
@@ -19,7 +18,8 @@ class CalculationCard extends StatelessWidget {
       elevation: 2.0,
       child: Container(
         padding: EdgeInsets.all(
-          ResponsiveFlutter.of(context).moderateScale(24.0),
+          // ResponsiveFlutter.of(context).moderateScale(24.0),
+          24.0,
         ),
         // height: ResponsiveFlutter.of(context).verticalScale(100.0),
         child: Column(
@@ -27,13 +27,13 @@ class CalculationCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text(
-              calculation.fertilizer.name,
+              calculation.fertilizer.name ?? '',
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: ResponsiveFlutter.of(context).fontSize(
-                  2.5,
-                ),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(
+                //   2.5,
+                // ),
               ),
             ),
             Text(
@@ -41,9 +41,9 @@ class CalculationCard extends StatelessWidget {
               textAlign: TextAlign.left,
               style: TextStyle(
                 color: Colors.grey[500],
-                fontSize: ResponsiveFlutter.of(context).fontSize(
-                  1.5,
-                ),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(
+                //   1.5,
+                // ),
               ),
             ),
             Text(
@@ -51,9 +51,9 @@ class CalculationCard extends StatelessWidget {
               textAlign: TextAlign.right,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: ResponsiveFlutter.of(context).fontSize(
-                  2.5,
-                ),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(
+                //   2.5,
+                // ),
               ),
             ),
           ],

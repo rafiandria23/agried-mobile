@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:agried/components.dart';
 import 'package:agried/screens.dart';
 
 class ResourceScreen extends StatefulWidget {
-  ResourceScreen({Key key}) : super(key: key);
+  ResourceScreen({Key? key}) : super(key: key);
 
   static const String route = '/resources';
 
@@ -18,7 +17,7 @@ class _ResourceScreenState extends State<ResourceScreen> {
     List<Widget> items = <Widget>[
       Padding(
         padding: EdgeInsets.only(
-          bottom: ResponsiveFlutter.of(context).moderateScale(20.0),
+          // bottom: ResponsiveFlutter.of(context).moderateScale(20.0),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -27,7 +26,7 @@ class _ResourceScreenState extends State<ResourceScreen> {
               image: AssetImage(
                 'assets/icons/logo.png',
               ),
-              height: ResponsiveFlutter.of(context).verticalScale(64.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(64.0),
             ),
           ],
         ),
@@ -39,7 +38,7 @@ class _ResourceScreenState extends State<ResourceScreen> {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+            // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage: AssetImage(
@@ -56,7 +55,8 @@ class _ResourceScreenState extends State<ResourceScreen> {
           style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: ResponsiveFlutter.of(context).fontSize(3.0)),
+              // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+          ),
         ),
         backgroundImage: AssetImage(
           'assets/images/resources/productivity_card_bg.png',
@@ -75,7 +75,8 @@ class _ResourceScreenState extends State<ResourceScreen> {
           style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,
-              fontSize: ResponsiveFlutter.of(context).fontSize(3.0)),
+              // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+          ),
         ),
         backgroundImage: AssetImage(
           'assets/images/resources/news_updates_card_bg.png',
@@ -91,7 +92,8 @@ class _ResourceScreenState extends State<ResourceScreen> {
           style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
-              fontSize: ResponsiveFlutter.of(context).fontSize(3.0)),
+              // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+          ),
         ),
         backgroundImage: AssetImage(
           'assets/images/resources/blogs_vlogs_card_bg.png',
@@ -107,7 +109,8 @@ class _ResourceScreenState extends State<ResourceScreen> {
           style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
-              fontSize: ResponsiveFlutter.of(context).fontSize(2.7)),
+              // fontSize: ResponsiveFlutter.of(context).fontSize(2.7),
+          ),
         ),
         backgroundImage: AssetImage(
           'assets/images/resources/knowledge_sharing_card_bg.png',
@@ -125,7 +128,8 @@ class _ResourceScreenState extends State<ResourceScreen> {
         body: SafeArea(
           child: ListView.separated(
             padding: EdgeInsets.all(
-              ResponsiveFlutter.of(context).moderateScale(8.0),
+              // ResponsiveFlutter.of(context).moderateScale(8.0),
+              8.0,
             ),
             itemCount: items.length,
             itemBuilder: (BuildContext itemBuilderContext, int index) {
@@ -134,7 +138,7 @@ class _ResourceScreenState extends State<ResourceScreen> {
             separatorBuilder:
                 (BuildContext separatorBuilderContext, int index) {
               return SizedBox(
-                height: ResponsiveFlutter.of(context).verticalScale(8.0),
+                // height: ResponsiveFlutter.of(context).verticalScale(8.0),
               );
             },
           ),

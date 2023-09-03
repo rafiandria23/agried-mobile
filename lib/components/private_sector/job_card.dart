@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:agried/models.dart';
+import 'package:flutter/material.dart';
 
 class JobCard extends StatelessWidget {
   final Job job;
 
   JobCard({
-    Key key,
-    @required this.job,
+    Key? key,
+    required this.job,
   }) : super(key: key);
 
   @override
@@ -14,9 +14,6 @@ class JobCard extends StatelessWidget {
     Widget jobDescription = job.description.length == 1
         ? Text(
             job.description[0],
-            style: TextStyle(
-              fontSize: 14.0,
-            ),
           )
         : Column(
             children: job.description.map(
@@ -60,25 +57,22 @@ class JobCard extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 8.0,
+              height: 10.0,
             ),
             Text(
               job.company,
               style: TextStyle(
-                fontSize: 14.0,
+                fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(
-              height: 5.0,
+              height: 10.0,
             ),
             Text(
               '${job.location.city}, ${job.location.alphaCode}',
-              style: TextStyle(
-                fontSize: 14.0,
-              ),
             ),
             SizedBox(
-              height: 18.0,
+              height: 10.0,
             ),
             jobDescription
           ],

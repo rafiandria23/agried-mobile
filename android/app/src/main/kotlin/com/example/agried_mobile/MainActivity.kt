@@ -1,4 +1,4 @@
-package com.agried.agried
+package com.rafiandria23.agried
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -14,16 +14,16 @@ class CalculatorNutrients {
   double ci;
 
   CalculatorNutrients({
-    this.n,
-    this.phosphate,
-    this.potash,
-    this.zn,
-    this.b,
-    this.fe,
-    this.mn,
-    this.cu,
-    this.mo,
-    this.ci,
+    required this.n,
+    required this.phosphate,
+    required this.potash,
+    required this.zn,
+    required this.b,
+    required this.fe,
+    required this.mn,
+    required this.cu,
+    required this.mo,
+    required this.ci,
   });
 
   Map<String, double> toMap() {

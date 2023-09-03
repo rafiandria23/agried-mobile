@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:agried/models.dart';
 import 'package:agried/components.dart';
+import 'package:agried/models.dart';
 import 'package:agried/screens.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -31,11 +30,7 @@ class _HomeScreenState extends State<HomeScreen> {
         AssetImage('assets/images/modules/a/module_a_image.png'),
       ],
       content:
-          '''Precision Agriculture (PA) is now a term used throughout agricultural systems worldwide, but what is meant by Precision Agriculture?
-
-          This introductory module provides a background to the evolution of PA, the principle philosophy and goals of a PA management strategy and some of the steps required to adopt PA in cropping systems.
-          
-          It provides a stepping stone to subsequent modules in this series that will investigate the theories technologies and methodologies behind the adoption of PA within grain production systems in Indonesia.''',
+          "Precision Agriculture (PA) is now a term used throughout agricultural systems worldwide, but what is meant by Precision Agriculture?\n\nThis introductory module provides a background to the evolution of PA, the principle philosophy and goals of a PA management strategy and some of the steps required to adopt PA in cropping systems.\n\nIt provides a stepping stone to subsequent modules in this series that will investigate the theories technologies and methodologies behind the adoption of PA within grain production systems in Indonesia.",
     ),
     Module(
       moduleTitle: 'Module B',
@@ -44,9 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
         AssetImage('assets/images/modules/b/module_b_image.png'),
       ],
       content:
-          '''Global Navigation Satellite Systems and Precision Agriculture Satellite-based navigation systems are truly the enabling technology of Precision Agriculture (PA). They provide a relatively simple and robust technique for identifying any location on the Earth's surface, or, in the case of aircraft, relative to the surface.
-          
-          This permits agricultural and environmental operation to be geo-referenced and spatially analysed. A wide range of satellite-based navigation and geo-location tools are available to suit different agronomic situations from point crop/soil sampling to autonomous vehicle guidance.''',
+          "Global Navigation Satellite Systems and Precision Agriculture Satellite-based navigation systems are truly the enabling technology of Precision Agriculture (PA). They provide a relatively simple and robust technique for identifying any location on the Earth's surface, or, in the case of aircraft, relative to the surface.\n\nThis permits agricultural and environmental operation to be geo-referenced and spatially analysed. A wide range of satellite-based navigation and geo-location tools are available to suit different agronomic situations from point crop/soil sampling to autonomous vehicle guidance.",
     ),
     Module(
       moduleTitle: 'Module C',
@@ -57,9 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
       content:
-          '''There is a large list of important components of a farming operation for which it might be useful to have data on the extent of variability. For some, such as fertiliser quality, farmers rely on outside companies to minimise the variation and so 'remove' the need for substantial 'on-farm' management.
-          
-          Others, such as crop yield, soil properties and pest and disease outbreaks, vary differently on each farm. Local knowledge about variability in these parts of the farming system can be used to build site-specific crop management (SSCM) strategies. SSCM can be used to identify and treat any areas where yield potential can be improved or better match input use to the natural yield potential across a field or farm.''',
+          "There is a large list of important components of a farming operation for which it might be useful to have data on the extent of variability. For some, such as fertiliser quality, farmers rely on outside companies to minimise the variation and so 'remove' the need for substantial 'on-farm' management.\n\nOthers, such as crop yield, soil properties and pest and disease outbreaks, vary differently on each farm. Local knowledge about variability in these parts of the farming system can be used to build site-specific crop management (SSCM) strategies. SSCM can be used to identify and treat any areas where yield potential can be improved or better match input use to the natural yield potential across a field or farm.",
     ),
     Module(
       moduleTitle: 'Module D',
@@ -73,9 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
       content:
-          '''The Development Agriculture theme brings together researchers with vast experience and diverse expertise from across the Faculties and with other University of Sydney Centres, such as the Charles Perkins Centre, Sydney Southeast Asia Centre, and Marie Bashir Institute for Infectious Diseases and Biosecurity.
-            
-            The goal of the Development Agriculture theme is to initiate and facilitate interdisciplinary collaborations by uniting researchers from multiple disciplines with expertise relating to agriculture and food in developing economies.''',
+          "The Development Agriculture theme brings together researchers with vast experience and diverse expertise from across the Faculties and with other University of Sydney Centres, such as the Charles Perkins Centre, Sydney Southeast Asia Centre, and Marie Bashir Institute for Infectious Diseases and Biosecurity.\n\nThe goal of the Development Agriculture theme is to initiate and facilitate interdisciplinary collaborations by uniting researchers from multiple disciplines with expertise relating to agriculture and food in developing economies.",
     ),
   ];
 
@@ -84,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
     List<Widget> items = <Widget>[
       Padding(
         padding: EdgeInsets.only(
-          bottom: ResponsiveFlutter.of(context).moderateScale(20.0),
+          bottom: 20.0,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -93,7 +82,6 @@ class _HomeScreenState extends State<HomeScreen> {
               image: AssetImage(
                 'assets/icons/logo.png',
               ),
-              height: ResponsiveFlutter.of(context).verticalScale(64.0),
             ),
           ],
         ),
@@ -110,19 +98,19 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage: AssetImage('assets/images/home/modules_card_bg.png'),
         onTap: () {
           Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ModuleScreen(
-                  modules: _modules,
-                  moduleIndex: 0,
-                ),
-              ));
+            context,
+            MaterialPageRoute(
+              builder: (context) => ModuleScreen(
+                modules: _modules,
+                moduleIndex: 0,
+              ),
+            ),
+          );
         },
       ),
       HomeCard(
@@ -132,7 +120,6 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage: AssetImage('assets/images/home/resources_card_bg.png'),
@@ -150,7 +137,6 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.blue,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage: AssetImage('assets/images/home/reporting_card_bg.png'),
@@ -168,7 +154,6 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,
-            fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage:
@@ -189,7 +174,8 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SafeArea(
           child: ListView.separated(
             padding: EdgeInsets.all(
-                ResponsiveFlutter.of(context).moderateScale(8.0)),
+              8.0,
+            ),
             itemCount: items.length,
             itemBuilder: (BuildContext itemBuilderContext, int index) {
               return items[index];

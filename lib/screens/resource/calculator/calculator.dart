@@ -1,10 +1,9 @@
 import 'package:agried/screens.dart';
 import 'package:flutter/material.dart';
-import 'package:responsive_flutter/responsive_flutter.dart';
 import 'package:agried/models.dart';
 
 class CalculatorScreen extends StatefulWidget {
-  CalculatorScreen({Key key}) : super(key: key);
+  CalculatorScreen({Key? key}) : super(key: key);
 
   static const String route = '/resources/calculator';
 
@@ -13,14 +12,14 @@ class CalculatorScreen extends StatefulWidget {
 }
 
 class _CalculatorScreenState extends State<CalculatorScreen> {
-  BuildContext _scaffoldContext;
+  late BuildContext _scaffoldContext;
 
   List<CalculatorUnit> units = [
     CalculatorUnit(name: 'in kg', unit: 'kg'),
     CalculatorUnit(name: 'in g', unit: 'g'),
     CalculatorUnit(name: 'in lb', unit: 'lb'),
   ];
-  CalculatorUnit _selectedUnit;
+  late CalculatorUnit _selectedUnit;
 
   final TextEditingController nController = TextEditingController();
   final TextEditingController phosphateController = TextEditingController();
@@ -83,86 +82,70 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     return 0.0;
   }
 
-  void _onChangeUnit(CalculatorUnit unit) {
-    setState(() {
-      nController.text = nController.text.isEmpty
-          ? null
-          : _convertUnit(
-              double.parse(nController.text),
-              _selectedUnit.unit,
-              unit.unit,
-            ).toString();
-      phosphateController.text = phosphateController.text.isEmpty
-          ? null
-          : _convertUnit(
-              double.parse(phosphateController.text),
-              _selectedUnit.unit,
-              unit.unit,
-            ).toString();
-      potashController.text = potashController.text.isEmpty
-          ? null
-          : _convertUnit(
-              double.parse(potashController.text),
-              _selectedUnit.unit,
-              unit.unit,
-            ).toString();
-      znController.text = znController.text.isEmpty
-          ? null
-          : _convertUnit(
-              double.parse(znController.text),
-              _selectedUnit.unit,
-              unit.unit,
-            ).toString();
-      bController.text = bController.text.isEmpty
-          ? null
-          : _convertUnit(
-              double.parse(bController.text),
-              _selectedUnit.unit,
-              unit.unit,
-            ).toString();
-      feController.text = feController.text.isEmpty
-          ? null
-          : _convertUnit(
-              double.parse(feController.text),
-              _selectedUnit.unit,
-              unit.unit,
-            ).toString();
-      mnController.text = mnController.text.isEmpty
-          ? null
-          : _convertUnit(
-              double.parse(mnController.text),
-              _selectedUnit.unit,
-              unit.unit,
-            ).toString();
-      cuController.text = cuController.text.isEmpty
-          ? null
-          : _convertUnit(
-              double.parse(cuController.text),
-              _selectedUnit.unit,
-              unit.unit,
-            ).toString();
-      moController.text = moController.text.isEmpty
-          ? null
-          : _convertUnit(
-              double.parse(moController.text),
-              _selectedUnit.unit,
-              unit.unit,
-            ).toString();
-      ciController.text = ciController.text.isEmpty
-          ? null
-          : _convertUnit(
-              double.parse(ciController.text),
-              _selectedUnit.unit,
-              unit.unit,
-            ).toString();
+  void _onChangeUnit(CalculatorUnit? unit) {
+    if (unit != null) {
+      setState(() {
+        nController.text = _convertUnit(
+          double.parse(nController.text),
+          _selectedUnit.unit,
+          unit.unit,
+        ).toString();
+        phosphateController.text = _convertUnit(
+          double.parse(phosphateController.text),
+          _selectedUnit.unit,
+          unit.unit,
+        ).toString();
+        potashController.text = _convertUnit(
+          double.parse(potashController.text),
+          _selectedUnit.unit,
+          unit.unit,
+        ).toString();
+        znController.text = _convertUnit(
+          double.parse(znController.text),
+          _selectedUnit.unit,
+          unit.unit,
+        ).toString();
+        bController.text = _convertUnit(
+          double.parse(bController.text),
+          _selectedUnit.unit,
+          unit.unit,
+        ).toString();
+        feController.text = _convertUnit(
+          double.parse(feController.text),
+          _selectedUnit.unit,
+          unit.unit,
+        ).toString();
+        mnController.text = _convertUnit(
+          double.parse(mnController.text),
+          _selectedUnit.unit,
+          unit.unit,
+        ).toString();
+        cuController.text = _convertUnit(
+          double.parse(cuController.text),
+          _selectedUnit.unit,
+          unit.unit,
+        ).toString();
+        moController.text = _convertUnit(
+          double.parse(moController.text),
+          _selectedUnit.unit,
+          unit.unit,
+        ).toString();
+        ciController.text = _convertUnit(
+          double.parse(ciController.text),
+          _selectedUnit.unit,
+          unit.unit,
+        ).toString();
 
-      _selectedUnit = unit;
-    });
+        _selectedUnit = unit;
+      });
+    }
   }
 
-  String _validator(String val) {
-    if (val.isNotEmpty && double.parse(val) <= 0) {
-      return 'Enter a valid value';
+  String? _validator(String? val) {
+    if (val != null) {
+      if (val.isNotEmpty && double.parse(val) <= 0) {
+        return 'Enter a valid value';
+      }
     }
 
     return null;
@@ -178,7 +161,8 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       ),
       child: Padding(
         padding: EdgeInsets.all(
-          ResponsiveFlutter.of(context).moderateScale(20.0),
+          // ResponsiveFlutter.of(context).moderateScale(20.0),
+          20.0
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -192,14 +176,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               ),
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(12.0),
             ),
 
             // Nitrogen (N)
             Text(
               'Nitrogen (N)',
               style: TextStyle(
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
               ),
             ),
             TextFormField(
@@ -213,14 +197,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               onEditingComplete: () => node.nextFocus(),
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(12.0),
             ),
 
             // Phosphate
             Text(
               'Phosphate',
               style: TextStyle(
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
               ),
             ),
             TextFormField(
@@ -234,14 +218,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               onEditingComplete: () => node.nextFocus(),
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(12.0),
             ),
 
             // Potash
             Text(
               'Potash',
               style: TextStyle(
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
               ),
             ),
             TextFormField(
@@ -270,7 +254,10 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       ),
       child: Padding(
         padding:
-            EdgeInsets.all(ResponsiveFlutter.of(context).moderateScale(20.0)),
+            EdgeInsets.all(
+                // ResponsiveFlutter.of(context).moderateScale(20.0)
+                20.0
+            ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -283,14 +270,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               ),
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(12.0),
             ),
 
             // Zinc (Zn)
             Text(
               'Zinc (Zn)',
               style: TextStyle(
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
               ),
             ),
             TextFormField(
@@ -304,14 +291,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               onEditingComplete: () => node.nextFocus(),
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(12.0),
             ),
 
             // Boron (B)
             Text(
               'Boron (B)',
               style: TextStyle(
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
               ),
             ),
             TextFormField(
@@ -325,14 +312,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               onEditingComplete: () => node.nextFocus(),
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(12.0),
             ),
 
             // Iron (Fe)
             Text(
               'Iron (Fe)',
               style: TextStyle(
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
               ),
             ),
             TextFormField(
@@ -346,14 +333,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               onEditingComplete: () => node.nextFocus(),
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(12.0),
             ),
 
             // Manganese (Mn)
             Text(
               'Manganese (Mn)',
               style: TextStyle(
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
               ),
             ),
             TextFormField(
@@ -367,14 +354,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               onEditingComplete: () => node.nextFocus(),
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(12.0),
             ),
 
             // Copper (Cu)
             Text(
               'Copper (Cu)',
               style: TextStyle(
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
               ),
             ),
             TextFormField(
@@ -388,14 +375,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               onEditingComplete: () => node.nextFocus(),
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(12.0),
             ),
 
             // Molybdenum (Mo)
             Text(
               'Molybdenum (Mo)',
               style: TextStyle(
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
               ),
             ),
             TextFormField(
@@ -409,14 +396,14 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               onEditingComplete: () => node.nextFocus(),
             ),
             SizedBox(
-              height: ResponsiveFlutter.of(context).verticalScale(12.0),
+              // height: ResponsiveFlutter.of(context).verticalScale(12.0),
             ),
 
             // Chlorine (CI)
             Text(
               'Chlorine (CI)',
               style: TextStyle(
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.4),
               ),
             ),
             TextFormField(
@@ -437,27 +424,23 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
 
   void _handleSubmit(BuildContext context) {
     CalculatorNutrients nutrients = CalculatorNutrients(
-      n: nController.text.isEmpty ? null : double.parse(nController.text),
-      phosphate: phosphateController.text.isEmpty
-          ? null
-          : double.parse(phosphateController.text),
-      potash: potashController.text.isEmpty
-          ? null
-          : double.parse(potashController.text),
-      zn: znController.text.isEmpty ? null : double.parse(znController.text),
-      b: bController.text.isEmpty ? null : double.parse(bController.text),
-      fe: feController.text.isEmpty ? null : double.parse(feController.text),
-      mn: mnController.text.isEmpty ? null : double.parse(mnController.text),
-      cu: cuController.text.isEmpty ? null : double.parse(cuController.text),
-      mo: moController.text.isEmpty ? null : double.parse(moController.text),
-      ci: ciController.text.isEmpty ? null : double.parse(ciController.text),
+      n: double.parse(nController.text),
+      phosphate: double.parse(phosphateController.text),
+      potash: double.parse(potashController.text),
+      zn: double.parse(znController.text),
+      b: double.parse(bController.text),
+      fe: double.parse(feController.text),
+      mn: double.parse(mnController.text),
+      cu: double.parse(cuController.text),
+      mo: double.parse(moController.text),
+      ci: double.parse(ciController.text),
     );
 
     List<double> nutrientValues =
         nutrients.toMap().entries.map((nutrient) => nutrient.value).toList();
 
-    if (_formKey.currentState.validate() &&
-        nutrientValues.any((nutrient) => nutrient != null && nutrient > 0)) {
+    if (_formKey.currentState!.validate() &&
+        nutrientValues.any((nutrient) => nutrient > 0)) {
       Navigator.pushNamed(
         context,
         CalculatorFertilizerGradeSelector.route,
@@ -490,7 +473,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             Text(
               'Enter nutrients ',
               style: TextStyle(
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.5),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.5),
               ),
             ),
             DropdownButton(
@@ -500,7 +483,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.w500,
-                fontSize: ResponsiveFlutter.of(context).fontSize(2.5),
+                // fontSize: ResponsiveFlutter.of(context).fontSize(2.5),
               ),
               value: _selectedUnit,
               items: units
@@ -532,22 +515,23 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
               autovalidateMode: AutovalidateMode.onUserInteraction,
               child: ListView(
                 padding: EdgeInsets.all(
-                  ResponsiveFlutter.of(context).moderateScale(8.0),
+                  // ResponsiveFlutter.of(context).moderateScale(8.0),
+                  8.0
                 ),
                 children: <Widget>[
                   SizedBox(
-                    height: ResponsiveFlutter.of(context).verticalScale(8.0),
+                    // height: ResponsiveFlutter.of(context).verticalScale(8.0),
                   ),
                   _renderMajorNutrientsCard(context),
                   SizedBox(
-                    height: ResponsiveFlutter.of(context).verticalScale(8.0),
+                    // height: ResponsiveFlutter.of(context).verticalScale(8.0),
                   ),
                   _renderMicroNutrientsCard(context),
                   SizedBox(
-                    height: ResponsiveFlutter.of(context).verticalScale(8.0),
+                    // height: ResponsiveFlutter.of(context).verticalScale(8.0),
                   ),
                   SizedBox(
-                    height: ResponsiveFlutter.of(context).verticalScale(30.0),
+                    // height: ResponsiveFlutter.of(context).verticalScale(30.0),
                     child: ElevatedButton(
                       onPressed: () {
                         _handleSubmit(context);
@@ -555,13 +539,13 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
                       child: Text(
                         'Next'.toUpperCase(),
                         style: TextStyle(
-                          fontSize: ResponsiveFlutter.of(context).fontSize(1.7),
+                          // fontSize: ResponsiveFlutter.of(context).fontSize(1.7),
                         ),
                       ),
                     ),
                   ),
                   SizedBox(
-                    height: ResponsiveFlutter.of(context).verticalScale(8.0),
+                    // height: ResponsiveFlutter.of(context).verticalScale(8.0),
                   ),
                 ],
               ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class ProductivityScreen extends StatefulWidget {
-  ProductivityScreen({Key key}) : super(key: key);
+  ProductivityScreen({Key? key}) : super(key: key);
 
   static const String route = '/resources/productivity';
 
@@ -11,9 +11,30 @@ class ProductivityScreen extends StatefulWidget {
 }
 
 class _ProductiviryScreenState extends State<ProductivityScreen> {
-  String _url =
+  static const String URL =
       'https://usfarmersandranchers.org/stories/sustainable-food-production/5-tools-and-technologies-that-drive-sustainable-agriculture';
-  bool _loading = true;
+
+  late WebViewController webViewController;
+
+  int _progress = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    webViewController = WebViewController();
+    webViewController.setJavaScriptMode(JavaScriptMode.unrestricted);
+    webViewController.setNavigationDelegate(
+      NavigationDelegate(
+        onProgress: (int progress) {
+          setState(() {
+            _progress = progress;
+          });
+        },
+      ),
+    );
+    webViewController.loadRequest(Uri.parse(URL));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,24 +43,22 @@ class _ProductiviryScreenState extends State<ProductivityScreen> {
         title: Text('Productivity'),
         bottom: PreferredSize(
           preferredSize: Size.zero,
-          child: _loading ? LinearProgressIndicator() : SizedBox(),
+          child: LinearProgressIndicator(
+            value: _progress / 100,
+            backgroundColor: Colors.white,
+            valueColor: AlwaysStoppedAnimation<Color>(
+              Colors.blue,
+            ),
+          ),
         ),
       ),
-      body: WebView(
-        initialUrl: _url,
-        javascriptMode: JavascriptMode.unrestricted,
-        onPageFinished: (String finished) {
-          setState(() {
-            _loading = false;
-          });
-        },
-      ),
+      body: WebViewWidget(controller: webViewController),
     );
   }
 }
 
 // class ProductivityScreen extends StatefulWidget {
-//   ProductivityScreen({Key key}) : super(key: key);
+//   ProductivityScreen({Key? key}) : super(key: key);
 
 //   static const String route = '/resources/productivity';
 

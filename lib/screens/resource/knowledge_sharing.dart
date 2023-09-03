@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 class KnowledgeSharingScreen extends StatefulWidget {
-  KnowledgeSharingScreen({Key key}) : super(key: key);
+  KnowledgeSharingScreen({Key? key}) : super(key: key);
 
   static const String route = '/resources/knowledge-sharing';
 
@@ -11,9 +11,29 @@ class KnowledgeSharingScreen extends StatefulWidget {
 }
 
 class _KnowledgeSharingScreenState extends State<KnowledgeSharingScreen> {
-  bool _loading = true;
-
   static const String URL = 'https://www.wur.nl/en/Library.htm';
+
+  late WebViewController webViewController;
+
+  int _progress = 0;
+
+  @override
+  void initState() {
+    super.initState();
+
+    webViewController = WebViewController();
+    webViewController.setJavaScriptMode(JavaScriptMode.unrestricted);
+    webViewController.setNavigationDelegate(
+      NavigationDelegate(
+        onProgress: (int progress) {
+          setState(() {
+            _progress = progress;
+          });
+        },
+      ),
+    );
+    webViewController.loadRequest(Uri.parse(URL));
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +42,16 @@ class _KnowledgeSharingScreenState extends State<KnowledgeSharingScreen> {
         title: Text('Knowledge Sharing'),
         bottom: PreferredSize(
           preferredSize: Size.zero,
-          child: _loading ? LinearProgressIndicator() : SizedBox(),
+          child: LinearProgressIndicator(
+            value: _progress / 100,
+            backgroundColor: Colors.white,
+            valueColor: AlwaysStoppedAnimation<Color>(
+              Colors.blue,
+            ),
+          ),
         ),
       ),
-      body: WebView(
-        initialUrl: URL,
-        javascriptMode: JavascriptMode.unrestricted,
-        onPageFinished: (String finished) {
-          setState(() {
-            _loading = false;
-          });
-        },
-      ),
+      body: WebViewWidget(controller: webViewController),
     );
   }
 }

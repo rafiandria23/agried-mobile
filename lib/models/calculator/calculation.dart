@@ -1,5 +1,4 @@
 import 'package:agried/models.dart';
-import 'package:flutter/foundation.dart';
 
 class Calculation {
   CalculatorFertilizerGrade fertilizer;
@@ -7,8 +6,8 @@ class Calculation {
   double result;
 
   Calculation({
-    @required this.fertilizer,
-    @required this.unit,
-    @required this.result,
+    required this.fertilizer,
+    required this.unit,
+    required this.result,
   });
 }
