@@ -15,7 +15,7 @@ dependencies:
   file_picker: ^3.0.0
   webview_flutter: ^2.0.2
   responsive_flutter: ^0.0.4
-  metadata_fetch: ^0.3.4
+  metadata_fetch: ^0.4.0
   shimmer: ^1.1.2
   url_launcher: ^6.0.3
 
