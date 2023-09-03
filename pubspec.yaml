@@ -13,7 +13,7 @@ dependencies:
   cupertino_icons: ^1.0.0
   flutter_launcher_icons: ^0.13.0
   file_picker: ^3.0.0
-  webview_flutter: ^2.0.2
+  webview_flutter: ^4.0.0
   responsive_flutter: ^0.0.4
   metadata_fetch: ^0.4.0
   shimmer: ^1.1.2
