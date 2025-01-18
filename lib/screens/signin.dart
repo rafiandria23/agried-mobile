@@ -63,7 +63,9 @@ class _SignInScreenState extends State<SignInScreen> {
       validator: (String? value) {
         if (value == null || value.isEmpty) {
           return 'Emaill cannot be empty!';
-        } else if (!RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+").hasMatch(value)) {
+        } else if (!RegExp(
+                r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+            .hasMatch(value)) {
           return 'Invalid Email address!';
         }
 

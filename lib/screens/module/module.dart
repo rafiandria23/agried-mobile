@@ -28,8 +28,8 @@ class ModuleScreen extends StatelessWidget {
               content: modules[moduleIndex].content,
             ),
             SizedBox(
-              // height: ResponsiveFlutter.of(context).verticalScale(16.0),
-            ),
+                // height: ResponsiveFlutter.of(context).verticalScale(16.0),
+                ),
             IconButton(
               icon: ImageIcon(
                 AssetImage('assets/icons/down_arrows.png'),
