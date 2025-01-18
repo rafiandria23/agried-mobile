@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -12,8 +11,8 @@ class OnlineReportingScreen extends StatefulWidget {
 
   @override
   _OnlineReportingScreenState createState() => _OnlineReportingScreenState(
-    reportURL: reportURL,
-  );
+        reportURL: reportURL,
+      );
 }
 
 class _OnlineReportingScreenState extends State<OnlineReportingScreen> {
@@ -33,14 +32,14 @@ class _OnlineReportingScreenState extends State<OnlineReportingScreen> {
     webViewController = WebViewController();
     webViewController.setJavaScriptMode(JavaScriptMode.unrestricted);
     webViewController.setNavigationDelegate(
-        NavigationDelegate(
-          onProgress: (int progress) {
-            setState(() {
-              _progress = progress;
-            });
-          },
-        ),
-      );
+      NavigationDelegate(
+        onProgress: (int progress) {
+          setState(() {
+            _progress = progress;
+          });
+        },
+      ),
+    );
     webViewController.loadRequest(Uri.parse(reportURL));
   }
 

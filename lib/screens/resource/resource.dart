@@ -17,8 +17,8 @@ class _ResourceScreenState extends State<ResourceScreen> {
     List<Widget> items = <Widget>[
       Padding(
         padding: EdgeInsets.only(
-          // bottom: ResponsiveFlutter.of(context).moderateScale(20.0),
-        ),
+            // bottom: ResponsiveFlutter.of(context).moderateScale(20.0),
+            ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
@@ -53,9 +53,9 @@ class _ResourceScreenState extends State<ResourceScreen> {
           'Productivity'.toUpperCase(),
           textAlign: TextAlign.start,
           style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage: AssetImage(
@@ -73,9 +73,9 @@ class _ResourceScreenState extends State<ResourceScreen> {
           'News Updates'.toUpperCase(),
           textAlign: TextAlign.end,
           style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage: AssetImage(
@@ -90,9 +90,9 @@ class _ResourceScreenState extends State<ResourceScreen> {
           'Blogs / Vlogs'.toUpperCase(),
           textAlign: TextAlign.start,
           style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            // fontSize: ResponsiveFlutter.of(context).fontSize(3.0),
           ),
         ),
         backgroundImage: AssetImage(
@@ -107,9 +107,9 @@ class _ResourceScreenState extends State<ResourceScreen> {
           'Knowledge Sharing'.toUpperCase(),
           textAlign: TextAlign.end,
           style: TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.bold,
-              // fontSize: ResponsiveFlutter.of(context).fontSize(2.7),
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            // fontSize: ResponsiveFlutter.of(context).fontSize(2.7),
           ),
         ),
         backgroundImage: AssetImage(
@@ -138,8 +138,8 @@ class _ResourceScreenState extends State<ResourceScreen> {
             separatorBuilder:
                 (BuildContext separatorBuilderContext, int index) {
               return SizedBox(
-                // height: ResponsiveFlutter.of(context).verticalScale(8.0),
-              );
+                  // height: ResponsiveFlutter.of(context).verticalScale(8.0),
+                  );
             },
           ),
         ));

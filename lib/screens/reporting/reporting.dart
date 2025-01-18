@@ -232,9 +232,9 @@ class _ReportingScreenState extends State<ReportingScreen> {
         },
         child: Padding(
           padding: EdgeInsets.symmetric(
-            // vertical: ResponsiveFlutter.of(context).moderateScale(48.0),
-            // horizontal: ResponsiveFlutter.of(context).moderateScale(24.0),
-          ),
+              // vertical: ResponsiveFlutter.of(context).moderateScale(48.0),
+              // horizontal: ResponsiveFlutter.of(context).moderateScale(24.0),
+              ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
@@ -251,8 +251,8 @@ class _ReportingScreenState extends State<ReportingScreen> {
                 ],
               ),
               SizedBox(
-                // height: ResponsiveFlutter.of(context).verticalScale(36.0),
-              ),
+                  // height: ResponsiveFlutter.of(context).verticalScale(36.0),
+                  ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -263,8 +263,8 @@ class _ReportingScreenState extends State<ReportingScreen> {
                 ],
               ),
               SizedBox(
-                // height: ResponsiveFlutter.of(context).verticalScale(18.0),
-              ),
+                  // height: ResponsiveFlutter.of(context).verticalScale(18.0),
+                  ),
               Text(
                 'IPB-TVET',
                 style: TextStyle(

@@ -41,10 +41,10 @@ class _CalculationScreenState extends State<CalculationScreen> {
       ),
       body: ListView(
         padding: EdgeInsets.all(
-          // ResponsiveFlutter.of(context).moderateScale(8.0),
-          8.0
-        ),
-        children: _calculations!.map((Calculation calculation) => CalculationCard(
+            // ResponsiveFlutter.of(context).moderateScale(8.0),
+            8.0),
+        children: _calculations!
+            .map((Calculation calculation) => CalculationCard(
                   calculation: calculation,
                 ))
             .toList(),
